@@ -1,0 +1,15 @@
+.product_image::-webkit-file-upload-button {
+  border: 0;
+  outline: 0;
+  background-color: indigo;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .product_managment {
+    width: 100vw;
+  }
+}

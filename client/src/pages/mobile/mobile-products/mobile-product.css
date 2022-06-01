@@ -1,0 +1,14 @@
+@media screen and (min-width: 768px) {
+  .article:hover {
+    transition: box-shadow 0.2s ease;
+    box-shadow: -2px 2px 2px gray, 2px 2px 2px gray;
+  }
+}
+
+.active {
+  color: #f33a6a;
+}
+
+.deactive {
+  color: black;
+}

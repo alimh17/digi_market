@@ -19,7 +19,7 @@ const server = http.createServer(app)
 
 //! -------------- initial database -----------------
 mongoose.console(process.env.MONGO_URI).then(() => {
-    server.listen(PORT, () => console.log(`server is listening ${PORT}`))
+    server.listen(PORT, () => console.log(`server is running on ${PORT}`))
 }).catch(err => {
     console.log('database connection failed')
 })

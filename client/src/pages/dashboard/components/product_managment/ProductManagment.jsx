@@ -35,7 +35,7 @@ const ProductManagment = React.memo(({ active }) => {
       "
       >
         <article
-          className={`flex flex-col justify-center items-center  border-2 rounded-lg p-4  m-3   ${
+          className={`flex flex-col justify-center items-center  border-2 rounded-lg p-4  m-3 cursor-pointer  ${
             product[0] && " border-indigo-800 shadow-2xl"
           }  `}
           onClick={() => handleChangeProductState(0)}
@@ -52,7 +52,7 @@ const ProductManagment = React.memo(({ active }) => {
           />
         </article>
         <article
-          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 ${
+          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 cursor-pointer ${
             product[1] && " border-indigo-800 shadow-2xl"
           } `}
           onClick={() => handleChangeProductState(1)}
@@ -69,7 +69,7 @@ const ProductManagment = React.memo(({ active }) => {
           />
         </article>
         <article
-          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 
+          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 cursor-pointer
         ${product[2] && " border-indigo-800 shadow-2xl"}
          `}
           onClick={() => handleChangeProductState(2)}
@@ -86,7 +86,7 @@ const ProductManagment = React.memo(({ active }) => {
           />
         </article>
         <article
-          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 
+          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 cursor-pointer
         ${product[3] && " border-indigo-800 shadow-2xl"}
          `}
           onClick={() => handleChangeProductState(3)}
@@ -103,7 +103,7 @@ const ProductManagment = React.memo(({ active }) => {
           />
         </article>
         <article
-          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 
+          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 cursor-pointer
         ${product[4] && " border-indigo-800 shadow-2xl"}
         
          `}
@@ -121,7 +121,7 @@ const ProductManagment = React.memo(({ active }) => {
           />
         </article>
         <article
-          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3
+          className={`flex flex-col justify-center items-center border-2 rounded-lg p-4 m-3 cursor-pointer
         ${product[5] && " border-indigo-800 shadow-2xl"}
          `}
           onClick={() => handleChangeProductState(5)}

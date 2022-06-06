@@ -1,5 +1,5 @@
 import React from "react";
-import FirstBanners from "./components/FirstBanners";
+import FirstBanners from "./components/firstBanner/FirstBanners";
 import MiddBanners from "./components/MiddBanners";
 
 const BannerManagement = React.memo(({ active }) => {

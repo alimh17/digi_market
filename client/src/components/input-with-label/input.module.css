@@ -1,0 +1,9 @@
+.uploadBTN::-webkit-file-upload-button {
+  border: 0;
+  outline: 0;
+  background-color: #4338CA;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}

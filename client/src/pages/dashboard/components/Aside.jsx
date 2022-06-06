@@ -17,7 +17,7 @@ const Aside = ({ active, setActive }) => {
   };
 
   return (
-    <aside className="sticky top-0 md:w-4/12 lg:w-3/12 hidden md:flex flex-col border-l-2 h-screen">
+    <aside className="sticky top-0 md:w-4/12 lg:w-3/12 hidden md:flex flex-col border-l h-screen border-l-gray-400">
       <form className="border-b-2 flex items-center justify-center h-32">
         <button
           type="submit"
@@ -28,14 +28,14 @@ const Aside = ({ active, setActive }) => {
         <input
           type="search"
           placeholder="جستجو"
-          className="p-4 rounded-lg w-3/4 px-10 text-xl focus:border-indigo-800 outline-0 border-2"
+          className="p-4 rounded-lg w-3/4 px-10 text-xl focus:border-indigo-800 outline-0 border border-gray-400"
         />
       </form>
       <ul>
         <li
           className={`${
             active[0] && "bg-indigo-700 text-white"
-          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out  my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out  my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(0)}
         >
           مدیریت محصولات
@@ -46,7 +46,7 @@ const Aside = ({ active, setActive }) => {
         <li
           className={`${
             active[1] && "bg-indigo-700 text-white"
-          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out  my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out  my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(1)}
         >
           مدیریت بنرها
@@ -57,7 +57,7 @@ const Aside = ({ active, setActive }) => {
         <li
           className={`${
             active[2] && "bg-indigo-700 text-white"
-          } p-3 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(2)}
         >
           تخفیف ها
@@ -68,7 +68,7 @@ const Aside = ({ active, setActive }) => {
         <li
           className={` ${
             active[3] && "bg-indigo-700 text-white"
-          } p-3 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(3)}
         >
           محصولات جدید
@@ -79,7 +79,7 @@ const Aside = ({ active, setActive }) => {
         <li
           className={` ${
             active[4] && "bg-indigo-700 text-white"
-          } p-3 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(4)}
         >
           پرفروش ترین ها
@@ -90,7 +90,7 @@ const Aside = ({ active, setActive }) => {
         <li
           className={`${
             active[5] && "bg-indigo-700 text-white"
-          } p-3 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(5)}
         >
           برندها
@@ -101,7 +101,7 @@ const Aside = ({ active, setActive }) => {
         <li
           className={`${
             active[6] && "bg-indigo-700 text-white"
-          } p-3 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(6)}
         >
           اخبار
@@ -112,7 +112,7 @@ const Aside = ({ active, setActive }) => {
         <li
           className={`${
             active[7] && "bg-indigo-700 text-white"
-          } p-3 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2`}
+          } p-4 text-xl flex items-center justify-between border-b transition-all cursor-pointer duration-200 ease-out my-2 rounded-lg mx-2`}
           onClick={() => handleActiveItems(7)}
         >
           راه های ارتباطی

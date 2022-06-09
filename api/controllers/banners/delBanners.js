@@ -1,5 +1,6 @@
-const Banners = require('../../model/banners');
+const fs = require('fs');
 
+const Banners = require('../../model/banners');
 
 //! -------------- Delete banners of DB --------------------
 
@@ -9,6 +10,7 @@ const delBanners = async (req, res, next) => {
         if (selected) {
             if (selected.length === 1) {
                 await Banners.deleteMany({ _id: selected[0]._id })
+                fs.unlinkSync(`public/images/banners/${selected[0].name}`)
                 res.status(200).json({
                     status: "success",
                     message: "بنر با موفقیت حذف شد!"
@@ -17,6 +19,7 @@ const delBanners = async (req, res, next) => {
             if (selected.length > 1) {
                 selected.map(async item => {
                     await Banners.deleteMany({ _id: item._id })
+                    fs.unlinkSync(`public/images/banners/${item.name}`)
                 })
                 res.status(200).json({
                     status: "success",

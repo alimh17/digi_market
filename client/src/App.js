@@ -8,21 +8,27 @@ import Mobile from "./pages/mobile/Mobile.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import NotFoundPage from "./pages/404/NotFoundPage";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const App = () => {
+
+  const queryClient = new QueryClient()
+
   return (
     <BrowserRouter>
-      <MainLayouts>
-        <Routes>
-          <Route path="/" element={<App />}></Route>
-          <Route index element={<Home />}></Route>
-          <Route path="/mobiles" element={<Mobile />}></Route>
-          <Route path="/mobiles/:id" element={<MobileProduct />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </MainLayouts>
+      <QueryClientProvider client={queryClient}>
+        <MainLayouts>
+          <Routes>
+            <Route path="/" element={<App />}></Route>
+            <Route index element={<Home />}></Route>
+            <Route path="/mobiles" element={<Mobile />}></Route>
+            <Route path="/mobiles/:id" element={<MobileProduct />}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </MainLayouts>
+      </QueryClientProvider>
     </BrowserRouter>
   );
 };

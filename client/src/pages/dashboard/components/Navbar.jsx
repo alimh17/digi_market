@@ -1,5 +1,6 @@
 import React from "react";
-import { FaMoon, FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaMoon, FaBars, FaHome } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
 
 const Navbar = () => {
@@ -14,6 +15,11 @@ const Navbar = () => {
         </li>
         <li className="text-2xl mx-3 text-indigo-600 cursor-pointer">
           <FaMoon />
+        </li>
+        <li className="text-2xl mx-3 text-indigo-600 cursor-pointer">
+          <Link to="/">
+            <FaHome />
+          </Link>
         </li>
       </ul>
     </nav>

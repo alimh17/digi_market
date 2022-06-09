@@ -14,6 +14,7 @@ import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 
 render(
   <Provider store={store}>
+    
     <App />
   </Provider>,
   document.getElementById("root")

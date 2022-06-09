@@ -26,7 +26,7 @@ const Form = ({ show, setLoading }) => {
     if (res) {
       setLoading(false);
       show(false);
-      addToast("بنر با موفقیت افزوده شد", {
+      addToast("بنر با موفقیت اضافه شد", {
         appearance: "success",
         autoDismiss: true,
       });

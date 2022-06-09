@@ -23,3 +23,26 @@ export const delBannersRequest = async (data) => {
         console.log(err)
     }
 }
+
+
+export const sendMidBanner = async (data) => {
+    try {
+        const formData = new FormData()
+        formData.append("name", data.name)
+        formData.append("banner", data)
+        const req = await axios.post(`${config.BASE_URL}/mid_banner`, formData
+        )
+        return req.data.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getMiddBanner = async () => {
+    try {
+        const req = await axios(`${config.BASE_URL}/mid_banner`)
+        return req.data.data
+    } catch (err) {
+        console.log(err)
+    }
+}

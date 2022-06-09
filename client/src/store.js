@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { getBannersAction } from "./actions/bannerAction";
 
 import { mobileInit } from "./actions/mobilesActions";
 import rootReducer from "./reducers";
@@ -15,6 +14,5 @@ const store = configureStore({
 });
 
 store.dispatch(mobileInit());
-store.dispatch(getBannersAction());
 
 export default store;

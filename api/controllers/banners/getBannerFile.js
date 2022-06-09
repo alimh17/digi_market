@@ -1,46 +1,55 @@
-const hash = require('string-hash');
 
-const getBannerFile = async (req, res) => {
-    console.log(req.body)
+const { mongoose } = require('mongoose');
+const Banners = require('../../model/banners');
 
-    res.send("receved")
+const getBannerFile = async (req, res, next) => {
 
-    // try {
-    //     if (!req.files) {
-    //         res.send({
-    //             status: false,
-    //             message: 'No file uploaded'
-    //         })
-    //     }
-    //     else {
-    //         let avatar = req.files.avatar
-    //         const name = hash(avatar.name)
+    try {
+        if (!req.files || !req.body) {
+            res.send({
+                status: false,
+                message: 'No file uploaded'
+            })
+        } else {
+            let banner = req.files.banner
+            const name = banner.name.replace(/\s+/g, '')
+            //! ------------------ save in directory ---------------------
+            banner.mv(`public/images/banners/${name}`)
 
-    //         let format;
-    //         if (avatar.mimetype === 'image/png') {
-    //             format = '.png'
-    //         } else if (avatar.mimetype === 'image/jpg') {
-    //             format = '.jpg'
-    //         } else if (avatar.mimetype === 'image/jpeg') {
-    //             format = '.jpeg'
-    //         }
+            //! ------------------- create new Object ------------------
+            const newBanner = await Banners.create({
+                _id: new mongoose.Types.ObjectId(),
+                name,
+                type: banner.mimetype,
+                size: banner.size,
+                path: `http://localhost:${process.env.PORT_API}/images/banners/${name}`
+            })
+            await newBanner.save().then(() => {
+                //! ----------------- send success response ----------------
 
-    //         avatar.mv('public/images/banners/' + name + format)
-    //         //! --------------------- send response -----------------
-    //         res.send({
-    //             status: true,
-    //             message: 'File is uploaded',
-    //             data: {
-    //                 name,
-    //                 mimetype: avatar.mimetype,
-    //                 size: avatar.size,
-    //                 path: `http://localhost:${process.env.PORT_API}/images/banners/${name}${format}`
-    //             }
-    //         });
-    //     }
-    // } catch (err) {
-    //     console.log(err)
-    // }
+                res.status(201).json({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: {
+                        _id: new mongoose.Types.ObjectId(),
+                        name,
+                        type: banner.mimetype,
+                        size: banner.size,
+                        path: `http://localhost:${process.env.PORT_API}/images/banners/${name}`
+                    }
+                })
+            }).catch(err => {
+
+                res.status(500).json({
+                    status: false,
+                    message: "expected name to be unique"
+                })
+            })
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 module.exports = getBannerFile

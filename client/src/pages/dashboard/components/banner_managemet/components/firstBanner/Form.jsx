@@ -1,28 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useToasts } from "react-toast-notifications";
 
 import Button from "../../../../../../components/button/Button";
 import config from "../../../../../../config/config.json";
 
 import style from "./form.module.css";
 
-const Form = ({ show }) => {
+const Form = ({ show, setLoading }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleSubmitForm = async (data) => {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("banner", data.banner[0]);
+  const { addToast } = useToasts();
 
-    const response = await axios.post(
-      `http://localhost:3001/api/v1/banner`,
-      formData
-    );
+  const handleSubmitForm = async (info) => {
+    const formData = new FormData();
+    formData.append("name", info.name);
+    formData.append("banner", info.banner[0]);
+    setLoading(true);
+    const res = await axios.post(`${config.BASE_URL}/banner`, formData);
+    if (res) {
+      setLoading(false);
+      show(false);
+      addToast("بنر با موفقیت افزوده شد", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+    }
+    const { data } = res;
   };
 
   return (

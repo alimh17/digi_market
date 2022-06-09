@@ -1,28 +1,45 @@
 import React, { useRef, useState } from "react";
-import { ToastProvider } from "react-toast-notifications";
+import ReactLoading from "react-loading";
+import { ToastProvider, useToasts } from "react-toast-notifications";
 
 import ModalComponent from "../../../../../../components/modal/ModalComponent";
 import Form from "./Form";
 import CurrentBanners from "./CurrentBanners";
 import AddAndDeleteBanners from "./AddAndDeleteBanners";
 import TitleBanner from "./TitleBanner";
-import SubmitChanges from "./SubmitChanges";
-import { SliderData } from "../../../../../../data/slider";
+import Button from "../../../../../../components/button/Button";
+import { delBannersRequest, getAllBanners } from "../../../../../../api";
+import { useQuery } from "react-query";
 
 const FirstBanners = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteIcon, setShowDeleteIcon] = useState(false);
   const [selectedBannersForDel, setSelectedBannersForDel] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const { addToast } = useToasts();
+
+  //! ------------------fetch all banners --------------------
+  const { data, isLoading } = useQuery("banners", getAllBanners);
 
   const IconRef = useRef([]);
   const ImgRef = useRef([]);
 
-  IconRef.current = SliderData.map((_, i) => {
-    return IconRef.current[i] ?? React.createRef();
-  });
-  ImgRef.current = SliderData.map((_, i) => {
-    return ImgRef.current[i] ?? React.createRef();
-  });
+  if (!isLoading) {
+    IconRef.current =
+      data &&
+      data.map((_, i) => {
+        return IconRef.current[i] ?? React.createRef();
+      });
+
+    ImgRef.current =
+      data &&
+      data.map((_, i) => {
+        return ImgRef.current[i] ?? React.createRef();
+      });
+  }
+
+  //! ------------ Set style for banners whene want delete banner ------------
 
   const handleAddStyle = (e, i, item) => {
     if (IconRef.current[i].current.classList.contains("text-gray-400")) {
@@ -51,12 +68,32 @@ const FirstBanners = () => {
     }
   };
 
+  //! -------------- Delete Selected Banner ----------------
+
+  const handleDelBanner = async () => {
+    const req = await delBannersRequest(selectedBannersForDel);
+    if (req.status === 200) {
+      setSelectedBannersForDel({});
+      setShowDeleteIcon(false);
+      addToast(req.data.message, {
+        autoDismiss: true,
+        appearance: "success",
+      });
+      data.map((_, i) => {
+        ImgRef.current[i].current.classList.replace(
+          "opacity-40",
+          "opacity-100"
+        );
+      });
+    }
+  };
+
   return (
     <section className="w-full">
       <TitleBanner />
       <div className="grid md:grid-rows-2 md:grid-cols-2 gap-3 m-2">
         <CurrentBanners
-          data={SliderData}
+          data={data}
           IconRef={IconRef}
           ImgRef={ImgRef}
           showDeleteIcon={showDeleteIcon}
@@ -70,14 +107,23 @@ const FirstBanners = () => {
           ImgRef={ImgRef}
           IconRef={IconRef}
         />
-        {showDeleteIcon && <SubmitChanges />}
+        {showDeleteIcon && (
+          <Button
+            title="ثبت تغییرات"
+            type="button"
+            primary={true}
+            click={handleDelBanner}
+          />
+        )}
       </div>
       {showModal && (
-        <ToastProvider>
-          <ModalComponent>
-            <Form show={setShowModal} />
-          </ModalComponent>
-        </ToastProvider>
+        <ModalComponent>
+          {loading ? (
+            <ReactLoading type="spin" color="indigo" height={300} width={200} />
+          ) : (
+            <Form show={setShowModal} setLoading={setLoading} />
+          )}
+        </ModalComponent>
       )}
     </section>
   );

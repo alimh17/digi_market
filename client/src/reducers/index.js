@@ -1,6 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
 import { allProductReducer } from "./allProducts";
+import { bannerReducer } from "./banners";
 import { cartReducer } from "./cart";
 import { loading } from "./loading";
 import { mobilesReducer } from "./mobiles";
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   loading,
   productSort,
+  banners: bannerReducer,
 });
 
 export default rootReducer;

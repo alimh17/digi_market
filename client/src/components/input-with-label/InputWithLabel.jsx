@@ -10,7 +10,6 @@ const InputWithLabel = ({
   type,
   placeholder,
   accept,
-  register,
 }) => {
   return (
     <>
@@ -25,7 +24,6 @@ const InputWithLabel = ({
         accept={accept && accept}
         className={`p-4 mt-3 border outline-0 rounded-lg focus:border-indigo-800 w-full border-gray-400 ${style.uploadBTN}`}
         multiple
-        register
       />
     </>
   );

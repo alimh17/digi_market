@@ -35,7 +35,9 @@ const PORT = process.env.PORT || process.env.PORT_API
 const server = http.createServer(app)
 
 //! -------------- initial database -----------------
-mongoose.connect(process.env.MONGO_URI).then(() => {
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+}).then(() => {
     server.listen(PORT, () => console.log(`server is running on ${PORT}`))
 }).catch(err => {
     console.log('database connection failed')

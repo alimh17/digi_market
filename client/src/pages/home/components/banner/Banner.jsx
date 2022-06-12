@@ -9,13 +9,13 @@ import {
   Scrollbar,
   EffectFade,
 } from "swiper";
+import { getAllBanners } from "../../../../server/bannersRequests/bannerRequests";
 
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 import "./banner.css";
-import { getAllBanners } from "../../../../api";
 
 const Banner = () => {
   //! ------------ fetch banners ---------------------

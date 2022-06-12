@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, '/public/images/banners')))
 
 //! -------------- Routes -------------------------
 app.use('/api/v1', require('./routes/banner'))
+app.use('/api/v1', require('./routes/mobiles'))
 
 
 //! -------------- create server -------------------

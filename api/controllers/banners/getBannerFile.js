@@ -1,6 +1,6 @@
 
 const { mongoose } = require('mongoose');
-const Banners = require('../../model/banners');
+const Banners = require('../../model/banners/banners');
 
 const getBannerFile = async (req, res, next) => {
 

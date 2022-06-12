@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Banner = require('../../model/midBanner');
+const Banner = require('../../model/banners/midBanner');
 const delBanners = require('../../utils/delBanners');
 
 const midBanner = async (req, res, next) => {

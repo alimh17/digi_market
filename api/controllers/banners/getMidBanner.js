@@ -1,18 +1,23 @@
 
-const Banner = require('../../model/midBanner');
+const Banner = require('../../model/banners/midBanner');
 
 
 const getMidBanner = async (req, res, next) => {
 
     try {
         const banner = await Banner.find({})
+        if (!banner) {
+            return res.status(400).json({
+                message: "failed",
+                status: "400"
+            })
+        }
 
-        res.status(200).json({
+        return res.status(200).json({
             status: 200,
             message: "success",
             data: banner[0]
         })
-        res.send("success")
 
     } catch (err) {
         console.log(err)

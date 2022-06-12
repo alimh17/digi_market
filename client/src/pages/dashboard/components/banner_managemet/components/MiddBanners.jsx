@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useToasts } from "react-toast-notifications";
 import { useQuery } from "react-query";
-import { getMiddBanner, sendMidBanner } from "../../../../../api";
+import {
+  getMiddBanner,
+  sendMidBanner,
+} from "../../../../../server/bannersRequests/bannerRequests";
 
 import style from "./midd_banner.module.css";
 

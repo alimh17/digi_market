@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import ReactLoading from "react-loading";
-import { ToastProvider, useToasts } from "react-toast-notifications";
+import { useQuery } from "react-query";
+import { useToasts } from "react-toast-notifications";
 
 import ModalComponent from "../../../../../../components/modal/ModalComponent";
 import Form from "./Form";
@@ -8,8 +9,10 @@ import CurrentBanners from "./CurrentBanners";
 import AddAndDeleteBanners from "./AddAndDeleteBanners";
 import TitleBanner from "./TitleBanner";
 import Button from "../../../../../../components/button/Button";
-import { delBannersRequest, getAllBanners } from "../../../../../../api";
-import { useQuery } from "react-query";
+import {
+  delBannersRequest,
+  getAllBanners,
+} from "../../../../../../server/bannersRequests/bannerRequests";
 
 const FirstBanners = () => {
   const [showModal, setShowModal] = useState(false);
@@ -84,6 +87,7 @@ const FirstBanners = () => {
           "opacity-40",
           "opacity-100"
         );
+        return null;
       });
     }
   };

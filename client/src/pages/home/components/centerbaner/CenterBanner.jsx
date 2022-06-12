@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { getMiddBanner } from "../../../../api";
+import { getMiddBanner } from "../../../../server/bannersRequests/bannerRequests";
 
 const CenterBanner = () => {
   const { data } = useQuery("midBanner", getMiddBanner);

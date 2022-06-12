@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const Banners = require('../../model/banners');
+const Banners = require('../../model/banners/banners');
 
 //! -------------- Delete banners of DB --------------------
 

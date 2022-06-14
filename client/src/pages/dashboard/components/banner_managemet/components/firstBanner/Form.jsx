@@ -7,6 +7,7 @@ import Button from "../../../../../../components/button/Button";
 import config from "../../../../../../config/config.json";
 
 import style from "./form.module.css";
+import { sendBanner } from "../../../../../../server/bannersRequests/bannerRequests";
 
 const Form = ({ show, setLoading }) => {
   const {
@@ -22,7 +23,7 @@ const Form = ({ show, setLoading }) => {
     formData.append("name", info.name);
     formData.append("banner", info.banner[0]);
     setLoading(true);
-    const res = await axios.post(`${config.BASE_URL}/banner`, formData);
+    const res = await sendBanner(formData);
     if (res) {
       setLoading(false);
       show(false);
@@ -31,7 +32,6 @@ const Form = ({ show, setLoading }) => {
         autoDismiss: true,
       });
     }
-    const { data } = res;
   };
 
   return (

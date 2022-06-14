@@ -1,23 +1,23 @@
+const fs = require('fs')
+
 const mongoose = require('mongoose');
 const Banner = require('../../model/banners/midBanner');
-const delBanners = require('../../utils/delBanners');
+// const delBanners = require('../../utils/delBanners');
 
 const midBanner = async (req, res, next) => {
 
     try {
         if (!req.files) {
-            res.send({
+            return res.status(400).json({
                 status: false,
                 message: 'No file uploaded'
             })
         } else {
             const banner = req.files.banner
-            const name = banner.name.replace(/\s+/g, '')
+            const name = banner.name
             const folder = `public/images/banners/mid_banner/`
-            delBanners(folder)
 
-            banner.mv(`${folder + name}`)
-
+            banner.mv(folder + name)
 
             await Banner.deleteMany({})
             //! ------------------- create new Object ------------------
@@ -31,7 +31,7 @@ const midBanner = async (req, res, next) => {
             await newBanner.save().then(() => {
                 //! ----------------- send success response ----------------
 
-                res.status(201).json({
+                return res.status(201).json({
                     status: true,
                     message: 'File is uploaded',
                     data: {
@@ -44,14 +44,11 @@ const midBanner = async (req, res, next) => {
                 })
             }).catch(err => {
 
-                res.status(500).json({
+                return res.status(500).json({
                     status: false,
                     message: "expected name to be unique"
                 })
             })
-
-            console.log(banner)
-            res.send("receved")
         }
     } catch (err) {
         console.log(err)

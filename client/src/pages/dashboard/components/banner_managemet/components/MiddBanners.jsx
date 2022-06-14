@@ -9,15 +9,9 @@ import {
 import style from "./midd_banner.module.css";
 
 const MiddBanners = () => {
-  const [banner, setBanner] = useState(null);
-
   const { addToast } = useToasts();
 
   const { data } = useQuery("midBanner", getMiddBanner);
-
-  useEffect(() => {
-    sendMidBanner(banner);
-  }, [banner]);
 
   return (
     <section className="w-full">
@@ -37,8 +31,8 @@ const MiddBanners = () => {
           accept=".jpg , .jpeg , .png"
           style={{ visibility: "hidden" }}
           onChange={(e) => {
-            setBanner(e.target.files[0]);
-            addToast("بنر میانی تغییر کرد ، تغییرات در حال انجام هستند", {
+            sendMidBanner(e.target.files[0]);
+            addToast("بنر میانی تغییر کرد ", {
               appearance: "success",
               autoDismiss: true,
             });

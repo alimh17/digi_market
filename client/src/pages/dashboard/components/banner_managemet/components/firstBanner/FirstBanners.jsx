@@ -74,6 +74,7 @@ const FirstBanners = () => {
   //! -------------- Delete Selected Banner ----------------
 
   const handleDelBanner = async () => {
+    setLoading(true);
     const req = await delBannersRequest(selectedBannersForDel);
     if (req.status === 200) {
       setSelectedBannersForDel({});

@@ -5,10 +5,7 @@ const uniqeValidator = require('mongoose-unique-validator');
 
 const bannersSchema = new Schema({
     _id: String,
-    name: {
-        type: String,
-        unique: true,
-    },
+    name: String,
     type: String,
     size: Number,
     path: String,

@@ -15,6 +15,15 @@ export const getAllBanners = async () => {
     }
 }
 
+export const sendBanner = async (data) => {
+    try {
+        const req = await axios.post(`${config.BASE_URL}/banner`, data)
+        return req
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 export const delBannersRequest = async (data) => {
     try {
         const req = await axios.post(`${config.BASE_URL}/del_banners`, {
@@ -28,13 +37,13 @@ export const delBannersRequest = async (data) => {
 
 
 export const sendMidBanner = async (data) => {
-    console.log(data)
     try {
         const formData = new FormData()
         formData.append("name", data.name)
         formData.append("banner", data)
         const req = await axios.post(`${config.BASE_URL}/mid_banner`, formData
         )
+
         return req.data.data
     } catch (error) {
         console.log(error)

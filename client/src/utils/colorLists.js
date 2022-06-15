@@ -21,3 +21,14 @@ export const colorList = [
   "gray",
   "gold",
 ];
+export const colorListFa = [
+  "مشکی",
+  "سفید",
+  "سبز",
+  "بنفش",
+  "آبی",
+  "قرمز",
+  "صورتی",
+  "خاکستری",
+  "طلایی",
+];

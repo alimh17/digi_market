@@ -20,3 +20,15 @@ export const brandConvertToPersian = (brand) => {
       return "";
   }
 };
+
+
+export const brands = [
+  "سامسونگ",
+  "شیائومی",
+  "اپل",
+  "نوکیا",
+  "هوآوی",
+  "پلاس",
+  "سونی",
+  "اچ تی سی"
+]

@@ -1,10 +1,9 @@
 const express = require("express")
-// const validator = require('express-joi-validation').createValidator({})
 const mobilesController = require('../controllers/mobiles/mobilesController');
-// const mobileValidate = require("../utils/mobileValidate");
 
 const route = express.Router()
 
-route.post('/mobile', mobilesController.getMobile)
+route.post('/mobile', mobilesController.receveMobile)
+route.get("/get_mobiles", mobilesController.allMobiles)
 
 module.exports = route

@@ -22,8 +22,7 @@ app.use(fileUpload({
 
 //! --------------- set Static files -----------------
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname, '/public/images/banners')))
+app.use("/public", express.static(path.join(__dirname, 'public')))
 
 
 //! -------------- Routes -------------------------

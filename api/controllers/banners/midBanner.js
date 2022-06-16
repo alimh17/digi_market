@@ -26,7 +26,7 @@ const midBanner = async (req, res, next) => {
                 name,
                 type: banner.mimetype,
                 size: banner.size,
-                path: `http://localhost:${process.env.PORT_API}/images/banners/mid_banner/${name}`
+                path: `http://localhost:${process.env.PORT_API}/${folder + name}`
             })
             await newBanner.save().then(() => {
                 //! ----------------- send success response ----------------

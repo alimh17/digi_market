@@ -1,9 +1,10 @@
-const getMobile = require('./getMobile');
-
+const receveMobile = require('./receveMobile');
+const allMobiles = require('./allMobiles')
 
 
 
 
 module.exports = {
-    getMobile,
+    receveMobile,
+    allMobiles
 }

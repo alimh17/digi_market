@@ -25,7 +25,7 @@ const getBannerFile = async (req, res, next) => {
                     name,
                     type: banner.mimetype,
                     size: banner.size,
-                    path: `http://localhost:${process.env.PORT_API}/images/banners/${name}`
+                    path: `http://localhost:${process.env.PORT_API}/public/images/banners/${name}`
                 })
                 await newBanner.save().then(() => {
                     //! ----------------- send success response ----------------
@@ -37,7 +37,7 @@ const getBannerFile = async (req, res, next) => {
                             name,
                             type: banner.mimetype,
                             size: banner.size,
-                            path: `http://localhost:${process.env.PORT_API}/images/banners/${name}`
+                            path: `http://localhost:${process.env.PORT_API}/public/images/banners/${name}`
                         }
                     })
                 }).catch(err => {

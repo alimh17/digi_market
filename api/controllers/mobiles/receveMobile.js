@@ -6,7 +6,7 @@ const Mobiles = require('../../model/mobile/mobile');
 const { pathMobiles } = require('../../utils/pathImageProduct');
 
 
-const getMobile = async (req, res, next) => {
+const receveMobile = async (req, res, next) => {
     try {
         if (req.body) {
             req.body
@@ -26,6 +26,7 @@ const getMobile = async (req, res, next) => {
 
                 //! ------------------ save many image ----------------
                 const path = pathMobiles(image)
+                console.log(path)
 
                 if (mobiles) {
                     const sampleMobiles = [...mobiles.mobiles]
@@ -81,4 +82,4 @@ const getMobile = async (req, res, next) => {
 
 
 
-module.exports = getMobile
+module.exports = receveMobile

@@ -12,6 +12,7 @@ import { showMobileFormAlert } from "../../../../../../utils/showFormAlert";
 import style from "./addProductComponent.module.css";
 import { newMobileRequest } from "../../../../../../server/mobileRequests/MobileRequests";
 import DashboardContext from "../../../../context/dashboardContext";
+import { useEffect } from "react";
 
 const MobileForm = () => {
   const { addToast } = useToasts();
@@ -44,7 +45,13 @@ const MobileForm = () => {
           });
           setLoading(false);
         }
-        setLoading(false);
+        if (res.status === 500) {
+          addToast("مشکلی پیش آمده است", {
+            appearance: "error",
+            autoDismiss: true,
+          });
+          setLoading(false);
+        }
       }}
     >
       {({

@@ -4,6 +4,7 @@ import AddProductComponents from "./components/AddProductComponents/AddProductCo
 import { SwitchProduct } from "../../utils/SwitchProduct";
 import RemovePorduct from "./components/RemovePorduct";
 import Article from "./components/article/Article";
+import RemoveAndEditPorduct from "./components/removeAndEditProduct/RemoveAndEditPorduct";
 
 const ProductManagment = React.memo(({ active }) => {
   const [product, setProduct] = useState(new Array(6).fill(false));
@@ -82,7 +83,8 @@ const ProductManagment = React.memo(({ active }) => {
           <h2 className="text-2xl font-bold border-b-2 border-b-rose-600 rounded-b-sm p-3 mx-4">
             ویرایش - حذف {SwitchProduct(product)}
           </h2>
-          <RemovePorduct product={product} />
+          <RemoveAndEditPorduct product={product} />
+          {/* <RemovePorduct product={product} /> */}
         </div>
       </div>
     </section>

@@ -19,29 +19,18 @@ export const newMobileRequest = async (data) => {
         const res = await axios.post(`${BASE_URL}/mobile`, formData, {
             Accept: "application/json"
         })
-        
         return res
-
     } catch (err) {
         console.log(err)
     }
+}
 
-
-
-    // // console.log(Object.keys(data.image))
-    // formData.append("screen", data.screen)
-    // formData.append("brand", data.brand)
-    // formData.append("network", data.network)
-    // formData.append("ram", data.ram)
-    // formData.append("dimensions", data.network)
-    // formData.append("weight", data.ram)
-    // formData.append("simcart", data.simcart)
-    // formData.append("color", data.color)
-    // formData.append("body", data.body)
-    // formData.append("features", data.features)
-    // formData.append("image", data.image)
-    // console.log(formData)
-
-
-
+export const getAllMobiles = async () => {
+    try {
+        let res = await axios(`${BASE_URL}/get_mobiles`)
+        const { data } = res.data
+        return data
+    } catch (err) {
+        console.log(err)
+    }
 }

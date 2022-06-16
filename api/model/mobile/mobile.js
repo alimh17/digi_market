@@ -12,15 +12,11 @@ const mobilesSchema = new Schema({
                 type: String,
                 required: true
             },
+            screen: {
+                type: String,
+                required: true
+            },
             brand: {
-                type: String,
-                required: true
-            },
-            color: {
-                type: String,
-                required: true
-            },
-            features: {
                 type: String,
                 required: true
             },
@@ -29,7 +25,39 @@ const mobilesSchema = new Schema({
                     type: String,
                     required: true
                 }
-            ]
+            ],
+            network: {
+                type: String,
+                required: true
+            },
+            ram: {
+                type: String,
+                required: true
+            },
+            dimensions: {
+                type: String,
+                required: true
+            },
+            weight: {
+                type: String,
+                required: true
+            },
+            simcart: {
+                type: String,
+                required: true
+            },
+            color: {
+                type: String,
+                required: true
+            },
+            body: {
+                type: String,
+                required: true
+            },
+            features: {
+                type: String,
+                required: true
+            },
         }
     ]
 })

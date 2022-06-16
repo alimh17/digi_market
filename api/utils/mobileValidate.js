@@ -7,21 +7,52 @@ const mobileValidate = Joi.object({
         .max(255).message("نام موبایل نمیتواند بیشتر از 255 کاراکتر باشد"),
     price: Joi.string()
         .required()
-        .min(4).message("قیمت محصول نباید کمتر از 4 کاراکتر باشد")
-        .max(9).message("قیمت محصول نمیتواند بیشتر از 9 کاراکتر باشد"),
+        .min(4).message("قیمت موبایل نباید کمتر از 4 کاراکتر باشد")
+        .max(9).message("قیمت موبایل نمیتواند بیشتر از 9 کاراکتر باشد"),
+    screen: Joi.string()
+        .required()
+        .min(4).message("اندازه صفحه موبایل نباید کمتر از 4 کاراکتر باشد")
+        .max(60).message("اندازه صفحه موبایل نمیتواند بیشتر از 60 کاراکتر باشد"),
     brand: Joi.string()
         .required()
         .min(2).message("برند موبایل نباید کمتر از 2 کاراکتر باشد")
         .max(60).message("برند موبایل نباید بیشتر از 60 کاراکتر باشد"),
+    image: Joi.any().required(),
+    network: Joi.string()
+        .required()
+        .min(2).message("شبکه نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("شبکه نباید بیشتر از 60 کاراکتر باشد"),
+    ram: Joi.string()
+        .required()
+        .min(2).message("رم موبایل نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("رم موبایل نباید بیشتر از 60 کاراکتر باشد"),
+    dimensions: Joi.string()
+        .required()
+        .min(2).message("ابعاد موبایل نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("ابعاد موبایل نباید بیشتر از 60 کاراکتر باشد"),
+    weight: Joi.string()
+        .required()
+        .min(2).message("وزن موبایل نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("وزن موبایل نباید بیشتر از 60 کاراکتر باشد"),
     color: Joi.string()
         .required()
         .min(2).message("رنگ موبایل نمیتواند کمتر از 2 کاراکتر باشد")
         .max(60).message("رنگ موبایل نمیتواند بیشتر از 60 کاراکتر باشد"),
+    simcart: Joi.string()
+        .required()
+        .min(2).message("سیمکارت موبایل نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("سیمکارت موبایل نباید بیشتر از 60 کاراکتر باشد"),
+    body: Joi.string()
+        .required()
+        .min(8).message("بدنه موبایل نمیتواند کمتر از 8 کاراکتر باشد")
+        .max(500).message("بدنه موبایل نمیتواند بیشتر از 500 کاراکتر باشد"),
     features: Joi.string()
         .required()
-        .min(12).message("ویژگی موبایل نمیتواند کمتر از 12 کاراکتر باشد")
+        .min(8).message("ویژگی موبایل نمیتواند کمتر از 8 کاراکتر باشد")
         .max(500).message("ویژگی موبایل نمیتواند بیشتر از 500 کاراکتر باشد")
 })
 
 
-module.exports = mobileValidate
+module.exports = {
+    mobileValidate
+}

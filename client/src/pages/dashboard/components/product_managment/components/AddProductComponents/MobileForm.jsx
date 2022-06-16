@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import _ from "lodash";
 import { Formik } from "formik";
 import { useToasts } from "react-toast-notifications";
@@ -10,11 +10,15 @@ import { mobileSchema } from "../../../../../../utils/validation";
 import { showMobileFormAlert } from "../../../../../../utils/showFormAlert";
 
 import style from "./addProductComponent.module.css";
+import { newMobileRequest } from "../../../../../../server/mobileRequests/MobileRequests";
+import DashboardContext from "../../../../context/dashboardContext";
 
 const MobileForm = () => {
   const { addToast } = useToasts();
+  const context = useContext(DashboardContext);
+  const { setLoading } = context;
 
-  const handleDisplayAlert = (err) => {
+  const handleDisplayAlert = async (err) => {
     if (!_.isEmpty(err)) {
       const alert = showMobileFormAlert(err);
       addToast(alert, {
@@ -30,11 +34,27 @@ const MobileForm = () => {
         name: "",
       }}
       validationSchema={mobileSchema}
-      onSubmit={(value) => {
-        console.log(value);
+      onSubmit={async (value) => {
+        setLoading(true);
+        const res = await newMobileRequest(value);
+        if (res.status === 201) {
+          addToast(res.data.message, {
+            appearance: "success",
+            autoDismiss: true,
+          });
+          setLoading(false);
+        }
+        setLoading(false);
       }}
     >
-      {({ handleSubmit, handleChange, handleBlur, values, errors }) => (
+      {({
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        values,
+        setFieldValue,
+        errors,
+      }) => (
         <form
           onSubmit={handleSubmit}
           className="flex flex-col justify-center items-center p-3 md:grid grid-rows-2 grid-cols-2 gap-3 lg:grid-row-3 lg:grid-cols-3 overflow-x-hidden"
@@ -53,7 +73,7 @@ const MobileForm = () => {
           <InputWithLabel
             label="قیمت"
             from="price"
-            type="text"
+            type="number"
             id="price"
             name="price"
             placeholder="24,499,000"
@@ -70,7 +90,7 @@ const MobileForm = () => {
             placeholder="6.0 اینچ و بزرگتر"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.screen ? values.price : ""}
+            value={values.screen ? values.screen : ""}
           />
           <div className=" w-full">
             <label htmlFor="brand" className="">
@@ -94,18 +114,21 @@ const MobileForm = () => {
               ))}
             </select>
           </div>
-          <InputWithLabel
-            label="تصویر محصول"
-            from="image"
-            id="image"
-            name="image"
-            placeholder="تصویر"
-            type="file"
-            accept=".jpg , .jpeg , .png"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.image ? values.image : null}
-          />
+          <div className="w-full m-3">
+            <label htmlFor="image">تصویر محصول</label>
+            <input
+              id="image"
+              name="image"
+              placeholder="تصویر"
+              type="file"
+              accept=".jpg , .jpeg , .png"
+              className={`p-4 mt-3 border outline-0 rounded-lg focus:border-indigo-800 w-full border-gray-400 ${style.uploadBTN}`}
+              onChange={(e) => setFieldValue("image", e.target.files)}
+              onBlur={handleBlur}
+              multiple
+            />
+          </div>
+
           <InputWithLabel
             label="شبکه"
             from="network"
@@ -119,48 +142,48 @@ const MobileForm = () => {
           />
           <InputWithLabel
             label="رم"
-            from="Ram"
-            id="Ram"
-            name="Ram"
+            from="ram"
+            id="ram"
+            name="ram"
             placeholder="128 گیگابایت"
             type="text"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.Ram ? values.Ram : ""}
+            value={values.ram ? values.ram : ""}
           />
 
           <InputWithLabel
             label="ابعاد"
-            from="Dimensions"
-            id="Dimensions"
-            name="Dimensions"
+            from="dimensions"
+            id="dimensions"
+            name="dimensions"
             placeholder="۱۴۶.۷x۷۱.۵x۷.۶۵"
             type="text"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.Dimensions ? values.Dimensions : ""}
+            value={values.dimensions ? values.dimensions : ""}
           />
           <InputWithLabel
             label="وزن"
-            from="Whigth"
-            id="Whigth"
-            name="Whigth"
+            from="weight"
+            id="weight"
+            name="weight"
             placeholder="۱۷۴  گرم"
             type="text"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.Whigth ? values.Whigth : ""}
+            value={values.weight ? values.weight : ""}
           />
           <InputWithLabel
             label="سیم کارت"
-            from="Simcart"
-            id="Simcart"
-            name="Simcart"
+            from="simcart"
+            id="simcart"
+            name="simcart"
             placeholder="سایز نانو (۸.۸ × ۱۲.۳ میلی‌متر)"
             type="text"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.Simcart ? values.Simcart : ""}
+            value={values.simcart ? values.simcart : ""}
           />
           <div className="m-3 w-full">
             <label htmlFor="color" className="m-2">
@@ -206,8 +229,8 @@ const MobileForm = () => {
               ویژگی های خاص
             </label>
             <textarea
-              name="SpecialFeatures"
-              id="SpecialFeatures"
+              name="features"
+              id="features"
               type="text"
               cols={6}
               rows={8}
@@ -221,7 +244,7 @@ const MobileForm = () => {
               className="m-3 p-4 border outline-0 rounded-lg focus:border-indigo-800 w-full resize-none border-gray-400"
               onChange={handleChange}
               onBlur={handleBlur}
-              value={values.SpecialFeatures ? values.SpecialFeatures : ""}
+              value={values.features ? values.features : ""}
             />
           </div>
           <input

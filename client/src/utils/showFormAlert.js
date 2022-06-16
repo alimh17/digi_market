@@ -11,14 +11,14 @@ export const showMobileFormAlert = (err) => {
         return err.image
     } else if (err.network) {
         return err.network
-    } else if (err.Ram) {
-        return err.Ram
-    } else if (err.Dimensions) {
-        return err.Dimensions
-    } else if (err.Whigth) {
-        return err.Whigth
-    } else if (err.Simcart) {
-        return err.Simcart
+    } else if (err.ram) {
+        return err.ram
+    } else if (err.dimensions) {
+        return err.dimensions
+    } else if (err.weight) {
+        return err.weight
+    } else if (err.simcart) {
+        return err.simcart
     } else if (err.color) {
         return err.color
     } else if (err.body) {

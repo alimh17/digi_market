@@ -5,6 +5,7 @@ import config from '../../config/config.json'
 const { BASE_URL } = config
 axios.defaults.headers['Content-Type'] = 'application/json; charset=utf-8';
 
+
 export const newMobileRequest = async (data) => {
     const formData = new FormData()
     const keys = Object.keys(data)
@@ -16,10 +17,10 @@ export const newMobileRequest = async (data) => {
         formData.append("image", keys)
     }
     try {
-        const res = await axios.post(`${BASE_URL}/mobile`, formData, {
+        const req = await axios.post(`${BASE_URL}/mobile`, formData, {
             Accept: "application/json"
         })
-        return res
+        return req
     } catch (err) {
         console.log(err)
     }
@@ -27,9 +28,23 @@ export const newMobileRequest = async (data) => {
 
 export const getAllMobiles = async () => {
     try {
-        let res = await axios(`${BASE_URL}/get_mobiles`)
-        const { data } = res.data
+        let req = await axios(`${BASE_URL}/get_mobiles`)
+        const { data } = req.data
         return data
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
+//!  ------------------------------------------------------------
+
+export const deleteMobileRequest = async (id) => {
+    try {
+        const req = await axios.post(`${BASE_URL}/del_mobiles`, {
+            id
+        })
+        return req
     } catch (err) {
         console.log(err)
     }

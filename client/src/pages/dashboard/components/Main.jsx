@@ -15,7 +15,7 @@ const Main = () => {
   return (
     <main className="flex font-sans">
       <Aside active={active} setActive={setActive} />
-      <section className="md:w-8/12 lg:w-9/12">
+      <section className="w-full">
         <ProductManagment active={active} />
         <BannerManagement active={active} />
         <Offers active={active} />

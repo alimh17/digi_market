@@ -259,7 +259,7 @@ const MobileForm = () => {
             type="submit"
             value="ثبت محصول"
             className="bg-indigo-800 text-white hover:bg-indigo-500
-       p-3 m-3 rounded-lg transition-all ease-in duration-150 text-xl cursor-pointe"
+       p-3 m-3 rounded-lg transition-all ease-in duration-150 text-xl cursor-pointer"
           />
         </form>
       )}

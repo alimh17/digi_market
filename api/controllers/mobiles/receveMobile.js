@@ -9,12 +9,10 @@ const { pathMobiles } = require('../../utils/pathImageProduct');
 const receveMobile = async (req, res, next) => {
     try {
         if (req.body) {
-            req.body
             const { error, value } = mobileValidate.validate(req.body, { abortEarly: false })
 
             if (error) {
                 const message = error.details.map(item => item.message)
-                console.log(message)
                 return res.status(500).json({
                     status: "failed",
                     message
@@ -26,7 +24,6 @@ const receveMobile = async (req, res, next) => {
 
                 //! ------------------ save many image ----------------
                 const path = pathMobiles(image)
-                console.log(path)
 
                 if (mobiles) {
                     const sampleMobiles = [...mobiles.mobiles]

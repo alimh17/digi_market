@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useQuery } from "react-query";
+import config from "../../../../../../config/config.json";
 import Loading from "../../../../../../components/loading/Loading";
 import { getAllMobiles } from "../../../../../../server/mobileRequests/MobileRequests";
+import { replacePrice } from "../../../../../../utils/replacePrice";
+import DelModal from "../DelModal";
+import EditModal from "../EditModal";
+
+const { URL } = config;
 
 const RemoveAndEditMobiles = () => {
+  const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  const [selectPorduct, setSelectProduct] = useState({});
+
   const { data, isLoading, isError } = useQuery("all_mobiles", getAllMobiles);
 
   return (
@@ -13,20 +24,43 @@ const RemoveAndEditMobiles = () => {
           <Loading />
         </div>
       )}
+      {isError && null}
       {data &&
         data.map((mobiles) => {
-          return mobiles.map((mobile, index) => (
-            <div key={index}>
-              <h1>{mobile.name}</h1>
-              <h1>{console.log(mobile)}</h1>
-              <img
-                alt={mobile.name}
-                src={`http://localhost:3001/${mobile.images[0]}`}
-              />
-              <h3>{console.log(`http://localhost:3001/${mobile.images[0]}`)}</h3>
-            </div>
+          return mobiles.map((m, i) => (
+            <article className="flex md:flex-col w-full" key={m._id}>
+              <div className="flex flex-row md:flex-col p-3  h-60 md:h-full justify-center  my-3  items-center border border-gray-400 rounded-lg w-full">
+                <img
+                  alt={m.name}
+                  src={URL + m.images[0]}
+                  className="w-1/3 md:w-2/3  h-full py-3"
+                />
+                <div className=" border-r border-r-gray-400 md:border-r-0">
+                  <p className="my-3 p-3 ">{m.name}</p>
+                  <p className="my-3 p-3 ">{replacePrice(m.price)} تومان</p>
+                  <span className="flex">
+                    <AiFillDelete
+                      className="text-rose-600 text-2xl m-3 cursor-pointer"
+                      onClick={() => {
+                        setSelectProduct({ ...m });
+                        setOpen(true);
+                      }}
+                    />
+                    <AiFillEdit
+                      className="text-indigo-600 text-2xl m-3 cursor-pointer"
+                      onClick={() => {
+                        setSelectProduct({ ...m });
+                        setOpenEdit(true);
+                      }}
+                    />
+                  </span>
+                </div>
+              </div>
+            </article>
           ));
         })}
+      <DelModal open={open} setOpen={setOpen} data={selectPorduct} url={URL} />
+      <EditModal open={openEdit} setOpen={setOpenEdit} data={selectPorduct} />
     </>
   );
 };

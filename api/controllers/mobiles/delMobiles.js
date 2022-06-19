@@ -1,10 +1,19 @@
 const Mobiles = require('../../model/mobile/mobile');
+const { rmMobileDir } = require('../../utils/mkDir');
 
 const delMobiles = async (req, res, next) => {
     try {
         let mobiles = await Mobiles.findOne()
         if (mobiles) {
             const filter = mobiles.mobiles.filter(f => f._id != req.body.id)
+            const path = mobiles.mobiles.map((item) => {
+                if (item._id == req.body.id) {
+                    const split = item.images[0].split("/")
+                    const path = split[split.length - 2]
+                    return path
+                }
+            })
+            rmMobileDir(`public/images/mobiles/${path[0]}`)
             await Mobiles.updateOne({ $set: { mobiles: filter } })
             return res.status(200).json({
                 status: "success",
@@ -16,7 +25,6 @@ const delMobiles = async (req, res, next) => {
                 message: "موبایل پیدا نشد"
             })
         }
-
     } catch (err) {
         next(err)
         return res.status(500).json({
@@ -25,7 +33,5 @@ const delMobiles = async (req, res, next) => {
         })
     }
 }
-
-
 
 module.exports = delMobiles

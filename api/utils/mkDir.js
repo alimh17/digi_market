@@ -7,8 +7,18 @@ const mkMobileDir = (dir) => {
     }
 }
 
-
+const rmMobileDir = (dir) => {
+    try {
+        if (dir) {
+            fs.rmSync(dir, { recursive: true })
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 module.exports = {
-    mkMobileDir
+    mkMobileDir,
+    rmMobileDir
 }
+

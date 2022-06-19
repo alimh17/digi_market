@@ -3,7 +3,7 @@ const { mongoose } = require('mongoose');
 
 const { mobileValidate } = require('../../utils/mobileValidate');
 const Mobiles = require('../../model/mobile/mobile');
-const { pathMobiles } = require('../../utils/pathImageProduct');
+const { pathMobiles, mainMobilePath } = require('../../utils/pathImageProduct');
 
 
 const receveMobile = async (req, res, next) => {
@@ -20,15 +20,18 @@ const receveMobile = async (req, res, next) => {
             } else {
                 const { name, price, screen, brand, network, ram, dimensions, weight, simcart, color, body, features } = value
                 const image = req.files.image
+                const mainImage = req.files.mainImage
                 const mobiles = await Mobiles.findOne()
 
-                //! ------------------ save many image ----------------
+                //! ------------------ save main image ----------------
                 const path = pathMobiles(image)
+                const mainPath = mainMobilePath(image)
+                mainImage.mv(`${mainPath + mainImage.name}`)
 
                 if (mobiles) {
                     const sampleMobiles = [...mobiles.mobiles]
                     sampleMobiles.push({
-                        name, price, screen, brand, network, ram, dimensions, weight, simcart, color, body, features, images: path
+                        name, price, screen, brand, network, ram, dimensions, weight, simcart, color, body, features, images: path, mainImage: mainPath + mainImage.name
                     })
                     const uniq = _.uniqBy(sampleMobiles, 'name')
                     await Mobiles.findByIdAndUpdate(mobiles._id, {

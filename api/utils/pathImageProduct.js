@@ -20,13 +20,21 @@ const pathMobiles = (image) => {
         dir = _.replace(dir, "jpge", "")
         dir = _.replace(dir, "png", "")
         dir = _.replace(dir, "jpg", "")
-        console.log(dir)
         mkMobileDir(dir)
         const path = saveMobilesImage(image, dir, image.name)
         return path
     }
 }
 
+const mainMobilePath = (image) => {
+    const path = pathMobiles(image)
+    const split = path[0].split("/")
+    split.pop()
+
+    return `public/images/mobiles/${split[split.length - 1]}/`
+}
+
 module.exports = {
-    pathMobiles
+    pathMobiles,
+    mainMobilePath
 }

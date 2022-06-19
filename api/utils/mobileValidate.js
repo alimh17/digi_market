@@ -18,6 +18,7 @@ const mobileValidate = Joi.object({
         .min(2).message("برند موبایل نباید کمتر از 2 کاراکتر باشد")
         .max(60).message("برند موبایل نباید بیشتر از 60 کاراکتر باشد"),
     image: Joi.any().required(),
+    mainImage: Joi.any().required(),
     network: Joi.string()
         .required()
         .min(2).message("شبکه نباید کمتر از 2 کاراکتر باشد")

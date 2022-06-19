@@ -20,6 +20,9 @@ const mobilesSchema = new Schema({
                 type: String,
                 required: true
             },
+            mainImage: {
+                type: String,
+            },
             images: [
                 {
                     type: String,

@@ -13,6 +13,7 @@ const delMobiles = async (req, res, next) => {
                     return path
                 }
             })
+            console.log(path)
             rmMobileDir(`public/images/mobiles/${path[0]}`)
             await Mobiles.updateOne({ $set: { mobiles: filter } })
             return res.status(200).json({

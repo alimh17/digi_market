@@ -15,47 +15,34 @@ const MobileSpecifications = ({ item }) => {
             <span className="text-gray-500 font-sans">ابعاد :</span>
             <span className="text-start text-gray-400 py-2 font-sans">
               {" "}
-              {item.Specifications.Dimensions}
+              {item.dimensions}
             </span>
           </li>
           <li className="p-3 flex flex-col border-b">
             <span className="text-gray-500 font-sans">وزن :</span>
             <span className=" text-start text-gray-400 py-2 font-sans">
-              {item.Specifications.Whigth}
+              {item.weight}
             </span>
           </li>
           <li className="p-3 flex flex-col border-b">
             <span className="text-gray-500 font-sans ">توضیحات سیم کارت: </span>
             <span className="text-start text-gray-400 py-2 font-sans">
-              {item.Specifications.Simcart}
+              {item.simcart}
             </span>
           </li>
           <li className="m-3 flex  flex-col border-b">
             <span className="text-gray-500 font-sans">ساختار بدنه :</span>
             <span className=" text-start text-gray-400 py-2 font-sans">
-              {item.Specifications.Body}
+              {item.body}
             </span>
           </li>
           <li className="m-3 flex   flex-col">
             <span className="text-gray-500 font-sans">ویژگی های خاص :</span>
-            {item.Specifications.SpecialFeatures.map((item, index) => (
-              <li key={index} className="py-2 font-sans text-gray-400">
-                {item}
-              </li>
-            ))}
+            {/* {item.Specifications.SpecialFeatures.map((item, index) => ( */}
+            <li className="py-2 font-sans text-gray-400">{item.features}</li>
+            {/* ))} */}
           </li>
         </ul>
-        {/* <ul className="md:w-2/4  w-full">
-          <li className="border-b  flex m-3 ">
-            <ul className="flex flex-col items-start ">
-              {item.Specifications.SpecialFeatures.map((item, index) => (
-                <li key={index} className="my-2">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </li>
-        </ul> */}
       </div>
     </div>
   );

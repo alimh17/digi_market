@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { showLoadingAction } from "../../../actions/loadingAction";
 
 import { setPorductAction } from "../../../actions/setProductAction";
-import { replaceNumberToPersian } from "../../../utils/replacePrice";
 import Cards from "./components/Cards";
 
 import MobileCard from "./components/MobileCard";
@@ -31,12 +30,12 @@ const MobileProducts = () => {
         </div>
         {mobile.allProduct.map((item) => (
           <div
-            key={item.id}
+            key={item._id}
             onClick={(e) => {
               dispatch(setPorductAction(item));
               dispatch(showLoadingAction());
               setTimeout(() => {
-                navigate(`/mobiles/${item.id}`);
+                navigate(`/mobiles/${item._id}`);
               }, 1800);
               localStorage.setItem("product", JSON.stringify(item));
             }}

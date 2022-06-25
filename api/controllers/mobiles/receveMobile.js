@@ -22,6 +22,11 @@ const receveMobile = async (req, res, next) => {
                 const image = req.files.image
                 const mainImage = req.files.mainImage
                 const mobiles = await Mobiles.findOne()
+                let colors = color.split(",")
+                colors = _.uniq(colors)
+                const rate = Math.random() * (5 - 3) + 3
+                const view = Math.floor(Math.random() * (1500 - 1000) + 1000)
+                const sell = Math.floor(Math.random() * (1500 - 1000) + 1000)
 
                 //! ------------------ save main image ----------------
                 const path = pathMobiles(image)
@@ -31,7 +36,8 @@ const receveMobile = async (req, res, next) => {
                 if (mobiles) {
                     const sampleMobiles = [...mobiles.mobiles]
                     sampleMobiles.push({
-                        name, price, screen, brand, network, ram, dimensions, weight, simcart, color, body, features, images: path, mainImage: mainPath + mainImage.name
+                        name, price, screen, brand, network, ram, rate: rate.toString().slice(0, 3), dimensions, weight, simcart, color: colors, body, view: view.toString(), sell: sell.toString(), date: new Date(),
+                        features, images: path, mainImage: mainPath + mainImage.name
                     })
                     const uniq = _.uniqBy(sampleMobiles, 'name')
                     await Mobiles.findByIdAndUpdate(mobiles._id, {
@@ -52,12 +58,16 @@ const receveMobile = async (req, res, next) => {
                                 brand,
                                 network,
                                 ram,
+                                rate,
                                 dimensions,
                                 weight,
                                 simcart,
+                                view,
+                                sell,
                                 color,
                                 body,
                                 features,
+                                date,
                                 images: path
                             }
                         ]

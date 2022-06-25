@@ -1,13 +1,14 @@
 import React from "react";
 import InnerImageZoom from "react-inner-image-zoom";
+import config from "../../../../config/config.json";
 
 const ImageZoom = ({ item }) => {
   return (
     <div className="w-1/3">
       <InnerImageZoom
         alt="img_product"
-        src={item.url}
-        zoomSrc={item.url}
+        src={config.URL + item.mainImage}
+        zoomSrc={config.URL + item.mainImage}
         moveType="pan"
         zoomType="hover"
         fadeDuration={100}

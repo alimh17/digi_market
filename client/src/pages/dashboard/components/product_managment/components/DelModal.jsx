@@ -53,7 +53,7 @@ const DelModal = ({ open, setOpen, data, url }) => {
                   </div>
                   <img
                     alt="delete_item"
-                    src={url + data.images[0]}
+                    src={url + data.mainImage}
                     className="w-1/2 h-2/3"
                   />
                   <h3 className="md:text-xl text-gray-400 text-center">

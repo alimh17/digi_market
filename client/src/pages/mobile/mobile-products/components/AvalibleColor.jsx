@@ -1,4 +1,5 @@
 import React from "react";
+import { switchColorFa } from "../../../../utils/switchColor";
 
 const AvalibleColor = ({ item }) => {
   return (
@@ -7,7 +8,7 @@ const AvalibleColor = ({ item }) => {
         <div key={i}>
           <span
             style={{
-              backgroundColor: `${c}`,
+              backgroundColor: `${switchColorFa(c)}`,
               width: ".6rem",
               height: ".6rem",
               display: "block",

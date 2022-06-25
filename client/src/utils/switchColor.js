@@ -22,3 +22,27 @@ export const switchColor = (color) => {
       return "مشکی";
   }
 };
+export const switchColorFa = (color) => {
+  switch (color) {
+    case "مشکی":
+      return "black";
+    case "سفید":
+      return "white";
+    case "سبز":
+      return "green";
+    case "بنفش":
+      return "purple";
+    case "آبی":
+      return "blue";
+    case "قرمز":
+      return "red";
+    case "صورتی":
+      return "pink";
+    case "خاکستری":
+      return "gray";
+    case "طلایی":
+      return "gold";
+    default:
+      return "";
+  }
+};

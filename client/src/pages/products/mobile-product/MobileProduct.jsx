@@ -1,29 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { toNumber } from "lodash";
-
-import { mobile } from "../../../data/mobile";
 
 import { colorList, colorObject } from "../../../utils/colorLists";
 import { switchColor } from "../../../utils/switchColor";
 
 import "./mobile-product.css";
 import MobileDevice from "./components/MobileDevice";
-import { BiInfoCircle, BiLike, BiStar } from "react-icons/bi";
-import { BsCoin } from "react-icons/bs";
-import {
-  replaceNumberToPersian,
-  replacePrice,
-} from "../../../utils/replacePrice";
+import { replaceNumberToPersian } from "../../../utils/replacePrice";
 import { generateRandomNumber } from "../../../utils/generateRandomNumber";
-
-import MobileColors from "./components/MobileColors";
-import MobileColor from "./components/MobileColor";
-import MobileOptions from "./components/MobileOptions";
-import MobileSimilar from "./components/MobileSimilar";
-import { AiOutlineSafety, AiOutlineShop } from "react-icons/ai";
-// import CartButton from "./components/CartButton";
-import InnerImageZoom from "react-inner-image-zoom";
 
 const MobileProduct = () => {
   const params = useParams();
@@ -33,6 +19,8 @@ const MobileProduct = () => {
 
   const [feedback, setFeedback] = useState(Number);
 
+  const mobile = useSelector((state) => state.mobiles);
+
   useEffect(() => {
     setFeedback(replaceNumberToPersian(generateRandomNumber()));
   }, []);
@@ -40,9 +28,9 @@ const MobileProduct = () => {
   let productColor = [];
 
   useEffect(() => {
-    const newproduct = mobile.filter((p) => p.id === toNumber(params.id));
-    setProduct(newproduct);
-    newproduct.map((item) => {
+    const newProduct = mobile.allProduct.filter((p) => p._id === params.id);
+    setProduct(newProduct);
+    newProduct.map((item) => {
       return setColors(item.color);
     });
   }, [params]);
@@ -73,7 +61,7 @@ const MobileProduct = () => {
     <section className="mobile-product">
       <div className="font-sans">
         {product.map((item) => (
-          <div key={item.id} className="my-3">
+          <div key={item._id} className="my-3">
             <MobileDevice
               item={item}
               colors={colors}

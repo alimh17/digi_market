@@ -16,6 +16,7 @@ export const newMobileRequest = async (data) => {
     for (const keys of data.image) {
         formData.append("image", keys)
     }
+    formData.append("mainImage", data.mainImage[0])
     try {
         const req = await axios.post(`${BASE_URL}/mobile`, formData, {
             Accept: "application/json"

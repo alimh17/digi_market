@@ -72,7 +72,7 @@ const MobileForm = () => {
             type="text"
             id="name"
             name="name"
-            placeholder="iphon 13 max pro"
+            placeholder="گوشی موبایل اپل مدل iPhone 13 A2634 دو سیم‌ کارت ظرفیت 128 گیگابایت و رم 4 گیگابایت"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.name ? values.name : ""}
@@ -133,6 +133,19 @@ const MobileForm = () => {
               onChange={(e) => setFieldValue("image", e.target.files)}
               onBlur={handleBlur}
               multiple
+            />
+          </div>
+          <div className="w-full m-3">
+            <label htmlFor="mainImage">تصویر اصلی</label>
+            <input
+              id="mainImage"
+              name="mainImage"
+              placeholder="تصویر"
+              type="file"
+              accept=".jpg , .jpeg , .png"
+              className={`p-4 mt-3 border outline-0 rounded-lg focus:border-indigo-800 w-full border-gray-400 ${style.uploadBTN}`}
+              onChange={(e) => setFieldValue("mainImage", e.target.files)}
+              onBlur={handleBlur}
             />
           </div>
 

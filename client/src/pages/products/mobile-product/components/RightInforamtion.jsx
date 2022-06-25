@@ -8,7 +8,7 @@ import MobileOptions from "./MobileOptions";
 const RightInforamtion = ({ item, feedback, color, colors, handle }) => {
   return (
     <div className="w-1/2 flex flex-col font-sans">
-      <p className="text-xs text-gray-300 px-1">{item.info}</p>
+      <h3 className=" text-gray-400 p-3 text-base font-bold">{item.name}</h3>
       <div className="flex items-center">
         <div className="flex items-center">
           <span className="flex items-center ">

@@ -6,7 +6,7 @@ const MobileCard = ({ item }) => {
   return (
     <article className="flex border-b p-3 md:hidden">
       <div className="flex flex-col justify-center items-center  w-3/6 md:w-1/3 mx-3  ">
-        <img alt="" src={item.url} style={{ height: "10rem" }} />
+        <img alt="" src={item.mainImage} style={{ height: "10rem" }} />
         <div className="flex">
           {item.color.map((c, i) => (
             <div key={i}>
@@ -21,9 +21,9 @@ const MobileCard = ({ item }) => {
       <div className="w-3/6 md:w-2/3 mx-3 flex flex-col justify-start items-center">
         <p className="p-3    ">
           {window.innerWidth >= 500 ? (
-            <span>{item.title}</span>
+            <span>{item.name}</span>
           ) : (
-            <span>{item.title.slice(0, 60)}...</span>
+            <span>{item.name.slice(0, 60)}...</span>
           )}
         </p>
         <div className="w-full text-left p-3 flex items-center justify-between ">

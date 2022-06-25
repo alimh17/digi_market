@@ -32,7 +32,7 @@ const RemoveAndEditMobiles = () => {
               <div className="flex flex-row md:flex-col p-3  h-60 md:h-full justify-center  my-3  items-center border border-gray-400 rounded-lg w-full">
                 <img
                   alt={m.name}
-                  src={URL + m.images[0]}
+                  src={URL + m.mainImage}
                   className="w-1/3 md:w-2/3  h-full py-3"
                 />
                 <div className=" border-r border-r-gray-400 md:border-r-0">

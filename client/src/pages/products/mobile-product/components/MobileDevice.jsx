@@ -1,14 +1,8 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import React from "react";
-import { AiOutlineSafety, AiOutlineShop } from "react-icons/ai";
-import { BiInfoCircle, BiLike, BiStar } from "react-icons/bi";
-import { BsCoin } from "react-icons/bs";
-import InnerImageZoom from "react-inner-image-zoom";
-import { Link } from "react-router-dom";
-import {
-  replaceNumberToPersian,
-  replacePrice,
-} from "../../../../utils/replacePrice";
+import { AiOutlineSafety } from "react-icons/ai";
+
+import { replaceNumberToPersian } from "../../../../utils/replacePrice";
 import CartButton from "./CartButton";
 import ImageZoom from "./ImageZoom";
 import LeftInformation from "./LeftInformation";
@@ -20,6 +14,9 @@ import MobileSimilar from "./MobileSimilar";
 import MobileSpecifications from "./MobileSpecifications";
 import MobileTitle from "./MobileTitle";
 import RightInforamtion from "./RightInforamtion";
+
+import config from "../../../../config/config.json";
+const { URL } = config;
 
 const MobileDevice = ({
   item,
@@ -51,7 +48,7 @@ const MobileDevice = ({
             <SplideSlide key={i} className="flex items-center justify-center ">
               <img
                 alt=""
-                src={img}
+                src={URL + img}
                 data-splide-lazy={img}
                 className="h-3/4 w-2/3"
               />

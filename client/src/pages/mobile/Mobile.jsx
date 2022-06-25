@@ -12,10 +12,15 @@ const Mobile = () => {
   const handleGroupin = (value) => {
     setGrouping(value);
   };
+
   const dispatch = useDispatch();
 
+  const handleGetMobiles = async () => {
+    return await dispatch(mobileInit());
+  };
+
   useEffect(() => {
-    // dispatch(mobileInit());
+    handleGetMobiles();
   }, []);
 
   return (

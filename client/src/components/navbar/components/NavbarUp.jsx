@@ -15,6 +15,7 @@ const NavbarUp = ({ show }) => {
   return (
     <ul className="flex w-full content-between">
       <li className="list-none flex w-full md:w-2/3 justify-between items-center md:justify-start">
+        <Link to="/dashboard">dashboard</Link>
         <FaBars className="md:hidden mx-3 text-lg" onClick={() => show(true)} />
         <h3 className="mx-5 text-2xl text-red-400 font-extrabold cursor-pointer brand">
           <Link to="/">Digi Market</Link>

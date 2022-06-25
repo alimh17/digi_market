@@ -6,11 +6,10 @@ const MobileTitle = ({ item, feedback, setFeedback }) => {
   return (
     <div className="border-b  py-3 font-sans">
       <div className="flex flex-col">
-        <span className="px-2 text-base m-3 text-gray-500">{item.title}</span>
+        <span className="px-2 text-base m-3 text-gray-500">{item.name}</span>
       </div>
       <span className="flex items-center mx-5 text-sm">
         <BiStar className="text-yellow-500 mx-3 " />
-        {replaceNumberToPersian(item.rate)}
         <p className="text-gray-400 mx-3 ">({replaceNumberToPersian(1186)})</p>
       </span>
       <span className="flex items-center mx-5">

@@ -33,7 +33,19 @@ const mobilesSchema = new Schema({
                 type: String,
                 required: true
             },
+            rate: {
+                type: String,
+                required: true
+            },
             ram: {
+                type: String,
+                required: true
+            },
+            view: {
+                type: String,
+                required: true
+            },
+            sell: {
                 type: String,
                 required: true
             },
@@ -50,17 +62,12 @@ const mobilesSchema = new Schema({
                 required: true
             },
             color: {
-                type: String,
+                type: Array,
                 required: true
             },
-            body: {
-                type: String,
-                required: true
-            },
-            features: {
-                type: String,
-                required: true
-            },
+            body: String,
+            features: String,
+            date: Date
         }
     ]
 })

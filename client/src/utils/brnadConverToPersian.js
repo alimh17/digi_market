@@ -20,6 +20,28 @@ export const brandConvertToPersian = (brand) => {
       return "";
   }
 };
+export const brandConvert = (brand) => {
+  switch (brand) {
+    case "سامسونگ":
+      return "Samsung";
+    case "شیائومی":
+      return "Xiaomi";
+    case "اپل":
+      return "Apple";
+    case "نوکیا":
+      return "Nokia";
+    case "هوآوی":
+      return "Huawei";
+    case "جی پلاس":
+      return "GPlus";
+    case "سونی":
+      return "Sony";
+    case "اچ تی سی":
+      return "HTC";
+    default:
+      return "";
+  }
+};
 
 
 export const brands = [

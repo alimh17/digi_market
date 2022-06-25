@@ -10,6 +10,9 @@ import {
 } from "../../../utils/replacePrice";
 import { sumPricesForCart } from "../../../utils/sumPricesforCart";
 
+import config from "../../../config/config.json";
+import style from "./fillmodal.module.css";
+
 const FillModal = ({ cart }) => {
   const dispatch = useDispatch();
 
@@ -25,22 +28,22 @@ const FillModal = ({ cart }) => {
           <BiArrowBack className="mx-1" />
         </Link>
       </div>
-      <div className="overflow-y-scroll" style={{ height: "25rem" }}>
+      <div
+        className={`overflow-y-scroll ${style.fillModal}`}
+        style={{ height: "25rem" }}
+      >
         {cart.map((item, index) => (
           <figure className="border-b flex p-3 " key={index}>
             <div className="w-1/3 h-full">
               <Link to={`/mobiles/${item.id}`}>
-                <img
-                  alt="product_img"
-                  src={process.env.PUBLIC_URL + item.url}
-                />
+                <img alt="product_img" src={config.URL + item.mainImage} />
               </Link>
               <ul className="flex w-full justify-around items-center py-3 border my-2 rounded-md">
                 <li className="text-rose-500">+</li>
                 <li>1 حداکثر</li>
                 <li>
                   <BiTrash
-                    className="text-red-600 text-xl cursor-pointer"
+                    className="text-red-500 text-xl cursor-pointer"
                     onClick={() => dispatch(removeProductFromCartAction(item))}
                   />
                 </li>

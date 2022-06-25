@@ -39,18 +39,20 @@ const Color = () => {
       >
         <h2 className="mx-5 text-xl">رنگ</h2>
         <BsChevronUp
-          className={`mx-5 text-xl transition-all duration-150 ease-in ${
+          className={`mx-5 text-xl transition-all duration-150 ease-in text-gray-400 ${
             showColor && "rotate-180"
           }`}
         />
       </div>
       <article className={`${showColor ? "flex" : "hidden"} flex-col `}>
-        <div className={`w-full flex flex-col justify-center items-center `}>
+        <div
+          className={`w-full flex flex-col justify-center items-center relative`}
+        >
           <input
             placeholder="جستجو..."
-            className="border-2 w-2/3 rounded-md p-3 m-3  outline-none pr-14"
+            className="border-2 w-3/4 rounded-md p-3 m-3  outline-none pr-14 "
           />
-          <FaSearch className="absolute left-3/4 text-2xl" />
+          <FaSearch className="absolute right-14 lg:right-16 xl:right-20 2xl:right-24 text-2xl text-gray-300" />
         </div>
         <div>
           <ul>
@@ -74,7 +76,9 @@ const Color = () => {
                   <TiTick className={` ${style.tick} text-4xl`} />
                   <span className={`${style.replace}`}></span>
 
-                  <p>{switchColor(c)}</p>
+                  <p className="font-bold text-xl text-gray-400">
+                    {switchColor(c)}
+                  </p>
                 </div>
                 <span
                   style={{ backgroundColor: c }}

@@ -9,7 +9,7 @@ const Simcard = () => {
     <section className="flex justify-between py-5 border-b">
       <h2 className="mx-5 text-xl">تعداد سیم کارت</h2>
       {!showSimcard ? (
-        <BsChevronUp className="mx-5 text-xl" />
+        <BsChevronUp className="mx-5 text-xl text-gray-400" />
       ) : (
         <BsChevronDown className="mx-5 text-xl" />
       )}

@@ -4,7 +4,7 @@ import config from "../../../../config/config.json";
 
 const ImageZoom = ({ item }) => {
   return (
-    <div className="w-1/3">
+    <div className="w-1/3 flex justify-center items-center">
       <InnerImageZoom
         alt="img_product"
         src={config.URL + item.mainImage}

@@ -13,7 +13,7 @@ const NavbarUp = ({ show }) => {
   const location = useLocation();
 
   return (
-    <ul className="flex w-full content-between">
+    <ul className="flex w-full content-between font-sans">
       <li className="list-none flex w-full md:w-2/3 justify-between items-center md:justify-start">
         <Link to="/dashboard">dashboard</Link>
         <FaBars className="md:hidden mx-3 text-lg" onClick={() => show(true)} />

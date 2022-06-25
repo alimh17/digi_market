@@ -38,9 +38,7 @@ const MobileSpecifications = ({ item }) => {
           </li>
           <li className="m-3 flex   flex-col">
             <span className="text-gray-500 font-sans">ویژگی های خاص :</span>
-            {/* {item.Specifications.SpecialFeatures.map((item, index) => ( */}
-            <li className="py-2 font-sans text-gray-400">{item.features}</li>
-            {/* ))} */}
+            <span className="py-2 font-sans text-gray-400">{item.features}</span>
           </li>
         </ul>
       </div>

@@ -30,7 +30,7 @@ const RangePrice = () => {
       >
         <h2 className="mx-5 text-xl">محدوده قیمت</h2>
         <BsChevronUp
-          className={`mx-5 text-xl transition-all ease-in duration-150 ${
+          className={`mx-5 text-xl transition-all ease-in duration-150 text-gray-400 ${
             show && "rotate-180"
           }`}
         />

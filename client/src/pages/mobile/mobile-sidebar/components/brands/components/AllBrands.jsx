@@ -54,9 +54,9 @@ const AllBrands = ({ show }) => {
               />
               <TiTick className={` ${style.tick} text-4xl`} />
               <span className={`${style.replace}`}></span>
-              <h2 className="p-3 md:text-2xl text-gray-500">
+              <p className="p-3 md:text-base font-bold lg:text-lg text-gray-500">
                 {brandConvertToPersian(item.name)}
-              </h2>
+              </p>
             </span>
             <h2 className="my-auto mx-3 text-gray-400 md:text-md">
               {item.name}

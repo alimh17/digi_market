@@ -8,7 +8,7 @@ const Network = () => {
     <section className="flex justify-between py-5 border-b">
       <h2 className="mx-5 text-xl">شبکه های ارتباطی</h2>
       {!showNetwork ? (
-        <BsChevronUp className="mx-5 text-xl" />
+        <BsChevronUp className="mx-5 text-xl text-gray-400" />
       ) : (
         <BsChevronDown className="mx-5 text-xl" />
       )}

@@ -4,11 +4,14 @@ import { BiStar, BiStoreAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { replaceNumberToPersian } from "../../utils/replacePrice";
 
+import config from "../../config/config.json";
+const { URL } = config;
+
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
 
   return (
-    <div className="md:mt-32 content-around border">
+    <div className="md:mt-32 content-around border font-sans">
       <ul className="my-3 mx-2">
         <li className="border-b-2 border-b-rose-600 rounded-b-sm inline py-1">
           سبد خرید
@@ -19,16 +22,13 @@ const Cart = () => {
         <section>
           <h2 className="p-3">سبد خرید شما</h2>
           <p className="text-gray-500 p-2">{cart.length} کالا</p>
-          {cart.map((item, index) => (
-            <figure className="border flex p-3" key={item.id}>
+          {cart.map((item) => (
+            <figure className="border flex p-3" key={item._id}>
               <div className="w-1/3">
-                <img
-                  alt="product_img"
-                  src={process.env.PUBLIC_URL + item.url}
-                />
+                <img alt="product_img" src={URL + item.mainImage} />
               </div>
               <div className="w-2/3 flex flex-col">
-                <h2>{item.title}</h2>
+                <h2>{item.name}</h2>
                 <span className="flex mt-2  text-gray-500">
                   <AiOutlineSafety className="text-2xl mx-3 " />
                   گارانتی {replaceNumberToPersian(18)} ماهه

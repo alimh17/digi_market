@@ -1,6 +1,7 @@
 import _, { fill, filter } from "lodash";
 import { getAllMobiles } from "../server/mobileRequests/MobileRequests";
 import { brandConvert, brandConvertToPersian } from "../utils/brnadConverToPersian";
+import { replacePersianNumber } from "../utils/replacePrice";
 import { switchColor } from "../utils/switchColor";
 
 export const mobileInit = () => async (dispatch, getState) => {
@@ -221,5 +222,25 @@ export const mobileSortByNetwork = (network) => async (dispatch, getState) => {
     copyState.allProduct = filter
     dispatch({ type: "SORT_BY_NETWORK", payload: copyState })
   }
- 
+
+}
+
+
+export const mobileSortByWeight = (range) => async (dispatch, getState) => {
+  const copyState = { ...getState().mobiles };
+
+  const mobiles = await getAllMobiles()
+
+  const weight = mobiles[0].map(item => {
+    let val = item.weight.replace("گرم", "")
+    val = replacePersianNumber(val)
+    if (range[0] < val && range[1] > val) {
+      return item
+    } else {
+      return false
+    }
+  })
+  const filter = weight.filter(f => f !== false)
+  copyState.allProduct = filter
+  return dispatch({ type: "SORT_BY_WEIGHT", payload: copyState })
 }

@@ -54,3 +54,18 @@ export const brands = [
   "سونی",
   "اچ تی سی"
 ]
+
+
+export const laptopBrands = [
+  "Asus",
+  "Lenovo",
+  "Apple",
+  "HP",
+  "Huawei",
+  "Dell",
+  "Acer",
+  "MSI",
+  "Microsoft",
+  "Razer",
+  "Sony"
+]

@@ -1,9 +1,9 @@
 const _ = require('lodash');
 const { mongoose } = require('mongoose');
 
-const { mobileValidate } = require('../../utils/mobileValidate');
+const { mobileValidate } = require('../../utils/Validate');
 const Mobiles = require('../../model/mobile/mobile');
-const { pathMobiles, mainMobilePath } = require('../../utils/pathImageProduct');
+const { mainMobilePath, pathImages } = require('../../utils/pathImageProduct');
 
 
 const receveMobile = async (req, res, next) => {
@@ -29,7 +29,7 @@ const receveMobile = async (req, res, next) => {
                 const sell = Math.floor(Math.random() * (1500 - 1000) + 1000)
 
                 //! ------------------ save main image ----------------
-                const path = pathMobiles(image)
+                const path = pathImages(image, `public/images/mobiles/`)
                 const mainPath = mainMobilePath(image)
                 mainImage.mv(`${mainPath + mainImage.name}`)
 

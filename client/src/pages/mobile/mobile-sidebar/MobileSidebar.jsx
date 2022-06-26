@@ -6,8 +6,7 @@ import Color from "./components/color/Color";
 import Network from "./components/network/Network";
 import Ram from "./components/Ram";
 import RangePrice from "./components/range_price/RangePrice";
-import Simcard from "./components/Simcard";
-import Type from "./components/Type";
+import Weight from "./components/weight/Weight";
 
 const MobileSidebar = () => {
   return (
@@ -19,7 +18,7 @@ const MobileSidebar = () => {
         <RangePrice />
         {/* <Type /> */}
         <Network />
-        <Simcard />
+        <Weight />
         <Ram />
       </div>
     </div>

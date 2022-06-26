@@ -24,6 +24,8 @@ export const mobilesReducer = (state = init, action) => {
       return action.payload;
     case "SORT_BY_NETWORK":
       return action.payload;
+    case "SORT_BY_WEIGHT":
+      return action.payload;
     default:
       return state;
   }

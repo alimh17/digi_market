@@ -1,5 +1,5 @@
 const Mobiles = require('../../model/mobile/mobile');
-const { rmMobileDir } = require('../../utils/mkDir');
+const { rmDir } = require('../../utils/mkDir');
 
 const delMobiles = async (req, res, next) => {
     try {
@@ -14,7 +14,7 @@ const delMobiles = async (req, res, next) => {
                 }
             })
             console.log(path)
-            rmMobileDir(`public/images/mobiles/${path[0]}`)
+            rmDir(`public/images/mobiles/${path[0]}`)
             await Mobiles.updateOne({ $set: { mobiles: filter } })
             return res.status(200).json({
                 status: "success",

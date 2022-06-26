@@ -6,21 +6,21 @@ import { hideOrdering } from "../../../../../actions/orderingAction";
 
 import { FaTimes } from "react-icons/fa";
 
-import "./mobile-ordering.css";
-import { MobileContext } from "../../../context/moibleContext";
-import {
-  mobileSortByCheapest,
-  mobileSortByExpensive,
-  mobileSortBySell,
-  mobileSortByView,
-} from "../../../../../actions/mobilesActions";
+import "./laptop_ordergin.module.css";
+import { LaptopContext } from "../../../context/LaptopContext";
+// import {
+//   mobileSortByCheapest,
+//   mobileSortByExpensive,
+//   mobileSortBySell,
+//   mobileSortByView,
+// } from "../../../../../actions/mobilesActions";
 
-const MobileOrdering = () => {
+const LaptopOrdering = () => {
   const ordering = useSelector((state) => state.ordering);
   const dispatch = useDispatch();
   const cancelButtonRef = useRef(null);
 
-  const context = useContext(MobileContext);
+  const context = useContext(LaptopContext);
 
   return (
     <Transition.Root show={ordering} as={Fragment}>
@@ -84,7 +84,7 @@ const MobileOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      dispatch(mobileSortBySell());
+                      // dispatch(mobileSortBySell());
                     }}
                   >
                     پرفروش ترین
@@ -94,7 +94,7 @@ const MobileOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      dispatch(mobileSortByView());
+                      // dispatch(mobileSortByView());
                     }}
                   >
                     پر بازدید ترین
@@ -103,7 +103,7 @@ const MobileOrdering = () => {
                     className="border text-right p-3 my-2 rounded-2xl"
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
-                      dispatch(hideOrdering());
+                      // dispatch(hideOrdering());
                     }}
                   >
                     جدید ترین
@@ -113,7 +113,7 @@ const MobileOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      dispatch(mobileSortByCheapest());
+                      // dispatch(mobileSortByCheapest());
                     }}
                   >
                     ارزان ترین
@@ -123,7 +123,7 @@ const MobileOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      dispatch(mobileSortByExpensive());
+                      // dispatch(mobileSortByExpensive());
                     }}
                   >
                     گران ترین
@@ -138,4 +138,4 @@ const MobileOrdering = () => {
   );
 };
 
-export default MobileOrdering;
+export default LaptopOrdering;

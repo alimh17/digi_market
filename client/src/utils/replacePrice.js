@@ -13,3 +13,10 @@ export const replaceNumberToPersian = (n) => {
 
   return n.toString().replace(/\d/g, (x) => farsiDigits[x]);
 };
+
+
+export const replacePersianNumber = (n) => {
+
+  const Num = n.replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+  return Num
+}

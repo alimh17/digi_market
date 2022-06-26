@@ -28,7 +28,7 @@ const NavbarDown = () => {
           </li>
           {/* <p className="text">sdkfasld;f</p> */}
           <li className="mx-1 lg:mx-3 py-3 text-sm lg:text-lg cursor-pointer hover:border-b-red-400 hover:border-b-2 transition-all duration-75 rounded-sm text-gray-400 px-1 laptop">
-            <Link to="labtop">لپ تاپ</Link>
+            <Link to="laptops">لپ تاپ</Link>
           </li>
           {/* <p className="text_2">text</p> */}
           <li className="mx-1 lg:mx-3 py-3 text-sm lg:text-lg cursor-pointer hover:border-b-red-400 hover:border-b-2 transition-all duration-75 rounded-sm text-gray-400 px-1">

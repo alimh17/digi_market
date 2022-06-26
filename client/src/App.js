@@ -9,6 +9,7 @@ import Cart from "./pages/cart/Cart.jsx";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import NotFoundPage from "./pages/404/NotFoundPage";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Laptops from "./pages/laptop/Laptops.jsx";
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/" element={<App />}></Route>
             <Route index element={<Home />}></Route>
             <Route path="/mobiles" element={<Mobile />}></Route>
+            <Route path="/laptops" element={<Laptops />}></Route>
             <Route path="/mobiles/:id" element={<MobileProduct />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/dashboard" element={<Dashboard />} />

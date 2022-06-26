@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@headlessui/react": "^1.6.1",
     "@material-tailwind/react": "0.3.4",
+    "@mui/material": "^5.8.5",
     "@reduxjs/toolkit": "^1.7.2",
     "@splidejs/react-splide": "^0.6.20",
     "@splidejs/splide-extension-grid": "^0.3.20",

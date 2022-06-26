@@ -3,7 +3,7 @@ import { mobileBrnads } from "../../../data/mobileBrnads";
 
 import Brand from "./components/brands/Brand";
 import Color from "./components/color/Color";
-import Network from "./components/Network";
+import Network from "./components/network/Network";
 import Ram from "./components/Ram";
 import RangePrice from "./components/range_price/RangePrice";
 import Simcard from "./components/Simcard";
@@ -17,7 +17,7 @@ const MobileSidebar = () => {
         <Brand />
         <Color />
         <RangePrice />
-        <Type />
+        {/* <Type /> */}
         <Network />
         <Simcard />
         <Ram />

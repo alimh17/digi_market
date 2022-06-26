@@ -11,7 +11,7 @@ const Cards = ({ item }) => {
   return (
     <article
       style={{ height: "29rem" }}
-      className="hidden md:flex md:flex-col md:items-center md:border md:justify-around border-b border-gray-300 my-2 p-2 article min-h-96 cursor-pointer rounded-md relative shadow-md "
+      className="hidden md:flex md:flex-col md:items-center md:border md:justify-around border-b border-gray-300 my-2 p-2 article min-h-96 cursor-pointer rounded-md relative shadow-md transition-all duration-150"
     >
       <AvalibleColor item={item} />
       <div className="flex  justify-center items-center w-full mx-3 ">

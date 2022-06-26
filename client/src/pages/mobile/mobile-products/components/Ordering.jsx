@@ -49,7 +49,7 @@ const Ordering = ({ active, setActive }) => {
             id={1}
             className={`${
               active[0] ? "active" : "deactive"
-            } mx-3 p-2  cursor-pointer text-sm md:text-base `}
+            } mx-3 p-2  cursor-pointer text-sm xl:text-base `}
             onClick={(e) => {
               dispatch(mobileSortBySell());
               handleActive(e);
@@ -59,7 +59,7 @@ const Ordering = ({ active, setActive }) => {
           </li>
           <li
             id={2}
-            className={`mx-3 p-2  cursor-pointer text-sm md:text-base ${
+            className={`mx-3 p-2  cursor-pointer text-sm xl:text-base ${
               active[1] ? "active" : "text-black"
             }`}
             onClick={(e) => {
@@ -71,7 +71,7 @@ const Ordering = ({ active, setActive }) => {
           </li>
           <li
             id={3}
-            className={`mx-3 p-2  cursor-pointer text-sm md:text-base ${
+            className={`mx-3 p-2  cursor-pointer text-sm xl:text-base ${
               active[2] ? "active" : "deactive"
             }`}
             onClick={(e) => handleActive(e)}
@@ -80,7 +80,7 @@ const Ordering = ({ active, setActive }) => {
           </li>
           <li
             id={4}
-            className={`mx-3 p-2  cursor-pointer text-sm md:text-base ${
+            className={`mx-3 p-2  cursor-pointer text-sm xl:text-base ${
               active[3] ? "active" : "deactive"
             }`}
             onClick={(e) => {
@@ -92,7 +92,7 @@ const Ordering = ({ active, setActive }) => {
           </li>
           <li
             id={5}
-            className={`mx-3 p-2  cursor-pointer text-sm md:text-base ${
+            className={`mx-3 p-2  cursor-pointer text-sm xl:text-base ${
               active[4] ? "active" : "deactive"
             }`}
             onClick={(e) => {

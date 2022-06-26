@@ -1,26 +1,24 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 import { replacePrice } from "../../../../../utils/replacePrice";
+import Slider from "@mui/material/Slider";
+import { useDispatch } from "react-redux";
+import { sortMobilesByPriceRange } from "../../../../../actions/mobilesActions";
 
 const RangePrice = () => {
   const [show, setShow] = useState(false);
-  const [InValue, setInValue] = useState("");
+  const [range, setRange] = useState([0, 50000000]);
 
-  const InRef = useRef(null);
+  const dispatch = useDispatch();
 
-  const handleValidationInPrice = (e) => {
-    const reg = new RegExp("^[0-9,]*$");
-
-    if (e.target.value.match(reg) && e.target.value !== ",") {
-      const In = e.target.value
-        .toString()
-        .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-      // console.log(val);
-      // setInValue(val);
-      console.log(In);
-    }
+  const handleChange = (e, newValue) => {
+    setRange(newValue);
+    dispatch(sortMobilesByPriceRange(newValue));
   };
 
+  function valuetext(value) {
+    return `${value}°C`;
+  }
 
   return (
     <section className="flex flex-col  py-5 border-b">
@@ -40,31 +38,34 @@ const RangePrice = () => {
           !show && "hidden"
         } justify-center items-center`}
       >
-        <div className="flex w-full justify-center items-center my-2">
-          <span className=" mx-2 text-center text-gray-500">از</span>
-          <input
-            type="text"
-            placeholder="0"
-            ref={InRef}
-            value={InValue}
-            maxLength={12}
-            className="border outline-none mx-2 p-3 rounded-lg bg-gray-200 text-2xl text-gray-600 "
-            onChange={(e) => handleValidationInPrice(e)}
-            // onKeyPress={(e) => setInValue(replacePrice(InValue))}
-          />
-
-          <span className=" mx-2 text-center text-gray-500">تومان</span>
+        <div
+          dir="ltr"
+          className="font-sans flex w-1/3 justify-center items-center my-5 "
+        ></div>
+        <div className="w-full  flex">
+          <div className=" w-1/3 flex justify-center flex-col items-center p-3 text-sm text-center text-gray-400">
+            <span>تا</span>
+            <span>{replacePrice(range[1])}</span>
+            <span>تومان</span>
+          </div>
+          <div className=" w-2/3 flex justify-center items-center">
+            <Slider
+              getAriaLabel={() => "Temperature range"}
+              min={0}
+              max={50000000}
+              value={range}
+              onChange={handleChange}
+              valueLabelDisplay="auto"
+              getAriaValueText={valuetext}
+              color="primary"
+            />
+          </div>
+          <div className="w-1/3 flex flex-col justify-center items-center p-3 text-sm text-center text-gray-400">
+            <span>از</span>
+            <span>{replacePrice(range[0])}</span>
+            <span>تومان</span>
+          </div>
         </div>
-        {/* <div className="flex w-full justify-center items-center my-2">
-          <span className=" mx-2 text-center text-gray-500">تا</span>
-          <input
-            type="text"
-            onChange={(e) => replacePrice(e.target.value)}
-            defaultValue={replacePrice(35000000)}
-            className="border outline-none mx-2 p-3 rounded-lg bg-gray-200 "
-          />
-          <span className=" mx-2 text-center text-gray-500">تومان</span>
-        </div> */}
       </article>
     </section>
   );

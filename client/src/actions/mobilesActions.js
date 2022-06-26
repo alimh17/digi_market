@@ -175,3 +175,51 @@ export const sortMobilesByColor = (color) => async (dispatch, getState) => {
   }
 
 };
+
+
+export const sortMobilesByPriceRange = (value) => async (dispatch, getState) => {
+  const copyState = { ...getState().mobiles };
+  const mobiles = await getAllMobiles()
+  copyState.priceRange = value
+  dispatch({ type: "SORT_BY_PRICE_RANGE", payload: copyState })
+
+  const result = mobiles[0].map(item => {
+    if (+item.price > copyState.priceRange[0] && +item.price < copyState.priceRange[1]) {
+      return item
+    } else {
+      return false
+    }
+  })
+  const filter = result.filter(f => f !== false)
+  copyState.allProduct = filter
+  return dispatch({ type: "SORT_BY_PRICE_RANGE", payload: copyState })
+
+}
+
+
+export const mobileSortByNetwork = (network) => async (dispatch, getState) => {
+  const copyState = { ...getState().mobiles };
+  copyState.network = network
+  dispatch({ type: "SORT_BY_NETWORK", payload: copyState })
+
+  const mobiles = await getAllMobiles()
+
+  if (copyState.network.length === 0) {
+    copyState.allProduct = mobiles[0]
+    dispatch({ type: "SORT_BY_NETWORK", payload: copyState })
+  } else {
+    let foundNetworkInclude = mobiles[0].map(item => {
+      let arr = item.network.split(",")
+      arr = _.map(arr, _.trim)
+      if (_.intersection(arr, copyState.network).length !== 0) {
+        return item
+      } else {
+        return false
+      }
+    })
+    const filter = foundNetworkInclude.filter(f => f !== false)
+    copyState.allProduct = filter
+    dispatch({ type: "SORT_BY_NETWORK", payload: copyState })
+  }
+ 
+}

@@ -77,6 +77,8 @@ const laptopValdidate = Joi.object({
         .required()
         .min(2).message("رنگ موبایل نمیتواند کمتر از 2 کاراکتر باشد")
         .max(60).message("رنگ موبایل نمیتواند بیشتر از 60 کاراکتر باشد"),
+    image: Joi.any().required(),
+    mainImage: Joi.any().required(),
     dimensions: Joi.string()
         .required()
         .min(2).message("ابعاد موبایل نباید کمتر از 2 کاراکتر باشد")

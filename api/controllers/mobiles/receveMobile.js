@@ -29,15 +29,14 @@ const receveMobile = async (req, res, next) => {
                 const sell = Math.floor(Math.random() * (1500 - 1000) + 1000)
 
                 //! ------------------ save main image ----------------
-                const path = pathImages(image, `public/images/mobiles/`)
-                const mainPath = mainMobilePath(image)
-                mainImage.mv(`${mainPath + mainImage.name}`)
+                const path = pathImages(image, `public/images/mobiles/`, mainImage)
+                const mainPath = mainMobilePath(mainImage, image)
 
                 if (mobiles) {
                     const sampleMobiles = [...mobiles.mobiles]
                     sampleMobiles.push({
                         name, price, screen, brand, network, ram, rate: rate.toString().slice(0, 3), dimensions, weight, simcart, color: colors, body, view: view.toString(), sell: sell.toString(), date: new Date(),
-                        features, images: path, mainImage: mainPath + mainImage.name
+                        features, images: path, mainImage: mainPath
                     })
                     const uniq = _.uniqBy(sampleMobiles, 'name')
                     await Mobiles.findByIdAndUpdate(mobiles._id, {
@@ -68,7 +67,8 @@ const receveMobile = async (req, res, next) => {
                                 body,
                                 features,
                                 date,
-                                images: path
+                                images: path,
+                                mainImage: mainPath
                             }
                         ]
                     })

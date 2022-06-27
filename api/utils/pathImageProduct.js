@@ -1,12 +1,12 @@
 const _ = require('lodash')
 
 const { mkMobileDir } = require("./mkDir")
-const { saveMobilesImage } = require("./saveProductImages")
+const { saveMobilesImage, saveLaptopsImage } = require("./saveProductImages")
 
 const pathImages = (image, root) => {
     if (image.length >= 2) {
         const path = image.map(item => {
-            let dir = `${root + image[0].name})/`
+            let dir = `${root + image[0].name.replace(" ", "_")}/`
             dir = _.replace(dir, "jpge", "")
             dir = _.replace(dir, "png", "")
             dir = _.replace(dir, "jpg", "")
@@ -26,19 +26,35 @@ const pathImages = (image, root) => {
     }
 }
 
-const mainMobilePath = (image) => {
-    const path = pathImages(image, `public/images/mobiles/`)
-    const split = path[0].split("/")
-    split.pop()
-
-    return `public/images/mobiles/${split[split.length - 1]}/`
+const mainMobilePath = (main, image) => {
+    let name
+    if (image.length >= 2) {
+        name = image[0].name
+    } else {
+        name = image.name
+    }
+    name = _.replace(name, "jpg", "")
+    name = _.replace(name, "png", "")
+    name = _.replace(name, "jpeg", "")
+    name = _.replace(name, " ", "_")
+    const path = saveMobilesImage(main, `public/images/mobiles/${name}/`, main.name)
+    return path
 }
-const mainLaptopPath = (image) => {
-    const path = pathImages(image, `public/images/laptops/`)
-    const split = path[0].split("/")
-    split.pop()
 
-    return `public/images/laptops/${split[split.length - 1]}/`
+
+const mainLaptopPath = (main, image) => {
+    let name
+    if (image.length >= 2) {
+        name = image[0].name
+    } else {
+        name = image.name
+    }
+    name = _.replace(name, "jpg", "")
+    name = _.replace(name, "png", "")
+    name = _.replace(name, "jpeg", "")
+    name = _.replace(name, " ", "_")
+    const path = saveLaptopsImage(main, `public/images/laptops/${name}/`, main.name)
+    return path
 }
 
 module.exports = {

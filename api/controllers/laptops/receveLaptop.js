@@ -19,7 +19,9 @@ const receveLaptop = async (req, res, next) => {
             })
         } else {
             const { name, price, screen, brand, cpu_model, ram, dimensions, weight, cpu_series, color, gpu_maker, ram_type, cpu_maker, detail } = value
-            const image = req.files.images
+
+
+            const image = req.files.image
             const mainImage = req.files.mainImage
             const laptops = await Laptops.findOne()
             let colors = color.split(",")
@@ -30,17 +32,15 @@ const receveLaptop = async (req, res, next) => {
             const sell = Math.floor(Math.random() * (1500 - 1000) + 1000)
             const date = new Date()
 
-            const path = pathImages(image, `public/images/laptops/`)
-            const mainPath = mainLaptopPath(image)
-
-
+            const path = pathImages(image, `public/images/laptops/` , mainImage)
+            const mainPath = mainLaptopPath(mainImage, image)
 
             if (laptops) {
                 const sampleLaptops = [...laptops.laptops]
                 sampleLaptops.push({
                     name, price, screen, brand, cpu_model, ram, dimensions, weight, cpu_series, gpu_maker, ram_type, cpu_maker, detail
                     , weight, color: colors, view: view.toString(), sell: sell.toString(), date,
-                    images: path, mainImage: mainPath + mainImage.name
+                    images: path, mainImage: mainPath
                 })
                 const uniq = _.uniqBy(sampleLaptops, 'name')
                 await Laptops.findByIdAndUpdate(laptops._id, {
@@ -73,7 +73,7 @@ const receveLaptop = async (req, res, next) => {
                             cpu_maker,
                             detail,
                             images: path,
-                            mainImage: mainPath + mainImage.name,
+                            mainImage: mainPath,
                             date
                         }
                     ]

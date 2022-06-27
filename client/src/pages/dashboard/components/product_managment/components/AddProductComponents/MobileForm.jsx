@@ -12,7 +12,6 @@ import { showMobileFormAlert } from "../../../../../../utils/showFormAlert";
 import style from "./addProductComponent.module.css";
 import { newMobileRequest } from "../../../../../../server/mobileRequests/MobileRequests";
 import DashboardContext from "../../../../context/dashboardContext";
-import { useEffect } from "react";
 
 const MobileForm = () => {
   const { addToast } = useToasts();
@@ -122,7 +121,7 @@ const MobileForm = () => {
             </select>
           </div>
           <div className="w-full m-3">
-            <label htmlFor="image">تصویر محصول</label>
+            <label htmlFor="image">تصاویر موبایل</label>
             <input
               id="image"
               name="image"

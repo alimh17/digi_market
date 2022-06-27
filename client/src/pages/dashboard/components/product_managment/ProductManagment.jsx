@@ -4,6 +4,7 @@ import AddProductComponents from "./components/AddProductComponents/AddProductCo
 import { SwitchProduct } from "../../utils/SwitchProduct";
 import Article from "./components/article/Article";
 import RemoveAndEditPorduct from "./components/removeAndEditProduct/RemoveAndEditPorduct";
+import { PorductManagmentContext } from "./context/productManagmentContext";
 
 const ProductManagment = React.memo(({ active }) => {
   const [product, setProduct] = useState(new Array(6).fill(false));
@@ -70,18 +71,22 @@ const ProductManagment = React.memo(({ active }) => {
           name="لوازم جانبی"
           path="extra_tools/tesco/TSCO TM 764 GA.jpg"
         />
-        <div className="p-2 col-span-full">
-          <h2 className="text-2xl font-bold border-b-2 border-b-rose-600 rounded-b-sm p-3 mx-4">
-            افزودن {SwitchProduct(product)} جدید
-          </h2>
-          <AddProductComponents product={product} />
-        </div>
-        <div className="p-2 col-span-full flex justify-center flex-col w-full container ">
-          <h2 className="text-2xl font-bold border-b-2 border-b-rose-600 rounded-b-sm p-3 mx-4">
-            ویرایش - حذف {SwitchProduct(product)}
-          </h2>
-          <RemoveAndEditPorduct product={product} />
-        </div>
+        <PorductManagmentContext.Provider
+          value={{ product, handleChangeProductState }}
+        >
+          <div className="p-2 col-span-full">
+            <h2 className="text-2xl font-bold border-b-2 border-b-rose-600 rounded-b-sm p-3 mx-4">
+              افزودن {SwitchProduct(product)} جدید
+            </h2>
+            <AddProductComponents product={product} />
+          </div>
+          <div className="p-2 col-span-full flex justify-center flex-col w-full container ">
+            <h2 className="text-2xl font-bold border-b-2 border-b-rose-600 rounded-b-sm p-3 mx-4">
+              ویرایش - حذف {SwitchProduct(product)}
+            </h2>
+            <RemoveAndEditPorduct product={product} />
+          </div>
+        </PorductManagmentContext.Provider>
       </div>
     </section>
   );

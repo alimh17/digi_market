@@ -29,7 +29,7 @@ const RemoveAndEditMobiles = () => {
         data.map((mobiles) => {
           return mobiles.map((m, i) => (
             <article className="flex md:flex-col w-full" key={m._id}>
-              <div className="flex flex-row md:flex-col p-3  h-60 md:h-full justify-center  my-3  items-center border border-gray-400 rounded-lg w-full">
+              <div className="flex flex-row md:flex-col p-3  h-60 md:h-full justify-center  my-3  items-center border border-gray-300 shadow-md rounded-lg w-full">
                 <img
                   alt={m.name}
                   src={URL + m.mainImage}

@@ -1,29 +1,25 @@
 export const showMobileFormAlert = (err) => {
-    if (err.name) {
-        return err.name
-    } else if (err.price) {
-        return err.price
-    } else if (err.screen) {
-        return err.screen
-    } else if (err.brand) {
-        return err.brand
-    } else if (err.image) {
-        return err.image
-    } else if (err.network) {
-        return err.network
-    } else if (err.ram) {
-        return err.ram
-    } else if (err.dimensions) {
-        return err.dimensions
-    } else if (err.weight) {
-        return err.weight
-    } else if (err.simcart) {
-        return err.simcart
-    } else if (err.color) {
-        return err.color
-    } else if (err.body) {
-        return err.body
-    } else if (err.SpecialFeatures) {
-        return err.SpecialFeatures
+
+    switch (Object.keys(err)[0]) {
+        case 'name': return err.name
+        case 'price': return err.price
+        case 'screen': return err.screen
+        case 'brand': return err.brand
+        case 'image': return err.image
+        case 'mainImage': return err.mainImage
+        case 'network': return err.network
+        case 'cpu_series': return err.cpu_series
+        case 'gpu_maker': return err.gpu_maker
+        case 'cpu_maker': return err.cpu_maker
+        case 'cpu_model': return err.cpu_model
+        case 'ram': return err.ram
+        case 'ram_type': return err.ram_type
+        case 'dimensions': return err.dimensions
+        case 'weight': return err.weight
+        case 'simcart': return err.simcart
+        case 'color': return err.color
+        case 'body': return err.body
+        case 'SpecialFeatures': return err.SpecialFeatures
+        case 'detail': return err.detail
     }
 }

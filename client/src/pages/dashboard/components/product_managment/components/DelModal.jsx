@@ -4,15 +4,14 @@ import { TiDelete } from "react-icons/ti";
 import { deleteMobileRequest } from "../../../../../server/mobileRequests/MobileRequests";
 import { useToasts } from "react-toast-notifications";
 import Loading from "../../../../../components/loading/Loading";
-import { deleteLaptopRequest } from "../../../../../server/laptopRequests/laptopRequests";
 
-const DelModal = ({ open, setOpen, data, url }) => {
+const DelModal = ({ open, setOpen, data, url, request }) => {
   const [loading, setLoading] = useState(false);
   const { addToast } = useToasts();
 
   const handleDeleteRequest = async () => {
     setLoading(true);
-    const req = await deleteLaptopRequest(data._id);
+    const req = await request(data._id);
     if (req.status === 200) {
       setLoading(false);
       setOpen(false);

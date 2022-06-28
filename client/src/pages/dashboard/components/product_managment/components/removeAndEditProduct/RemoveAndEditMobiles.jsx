@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import config from "../../../../../../config/config.json";
 import Loading from "../../../../../../components/loading/Loading";
 import { getAllMobiles } from "../../../../../../server/mobileRequests/MobileRequests";
+import { deleteMobileRequest } from "../../../../../../server/mobileRequests/MobileRequests";
 import { replacePrice } from "../../../../../../utils/replacePrice";
 import DelModal from "../DelModal";
 import EditModal from "../EditModal";
@@ -59,7 +60,13 @@ const RemoveAndEditMobiles = () => {
             </article>
           ));
         })}
-      <DelModal open={open} setOpen={setOpen} data={selectPorduct} url={URL} />
+      <DelModal
+        open={open}
+        setOpen={setOpen}
+        data={selectPorduct}
+        url={URL}
+        request={deleteMobileRequest}
+      />
       <EditModal open={openEdit} setOpen={setOpenEdit} data={selectPorduct} />
     </>
   );

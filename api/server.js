@@ -29,6 +29,7 @@ app.use("/public", express.static(path.join(__dirname, 'public')))
 app.use('/api/v1', require('./routes/banner'))
 app.use('/api/v1', require('./routes/mobiles'))
 app.use('/api/v1', require('./routes/laptops'))
+app.use('/api/v1', require('./routes/tablets'))
 
 
 //! -------------- create server -------------------

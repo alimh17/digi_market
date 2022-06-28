@@ -21,5 +21,6 @@ export const showMobileFormAlert = (err) => {
         case 'body': return err.body
         case 'SpecialFeatures': return err.SpecialFeatures
         case 'detail': return err.detail
+        case 'internal_ram': return err.internal_ram
     }
 }

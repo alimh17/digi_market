@@ -112,8 +112,63 @@ const laptopValdidate = Joi.object({
         .max(700).message("بدنه موبایل نمیتواند بیشتر از 700 کاراکتر باشد"),
 })
 
+const tabletValidation = Joi.object({
+    name: Joi.string()
+        .required()
+        .min(4).message("نام تبلت نباید کمتر از 4 کاراکتر باشد")
+        .max(255).message("نام تبلت نمیتواند بیشتر از 255 کاراکتر باشد"),
+    price: Joi.string()
+        .required()
+        .min(4).message("قیمت تبلت نباید کمتر از 4 کاراکتر باشد")
+        .max(9).message("قیمت تبلت نمیتواند بیشتر از 9 کاراکتر باشد"),
+    screen: Joi.string()
+        .required()
+        .min(4).message("اندازه صفحه تبلت نباید کمتر از 4 کاراکتر باشد")
+        .max(60).message("اندازه صفحه تبلت نمیتواند بیشتر از 60 کاراکتر باشد"),
+    brand: Joi.string()
+        .required()
+        .min(2).message("برند تبلت نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("برند تبلت نباید بیشتر از 60 کاراکتر باشد"),
+    image: Joi.any().required(),
+    mainImage: Joi.any().required(),
+    network: Joi.string()
+        .required()
+        .min(2).message("شبکه نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("شبکه نباید بیشتر از 60 کاراکتر باشد"),
+    ram: Joi.string()
+        .required()
+        .min(2).message("رم تبلت نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("رم تبلت نباید بیشتر از 60 کاراکتر باشد"),
+    internal_ram: Joi.string()
+        .required()
+        .min(2).message("حافظه داخلی تبلت نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("حافظه داخلی تبلت نباید بیشتر از 60 کاراکتر باشد"),
+    weight: Joi.string()
+        .required()
+        .min(2).message("وزن تبلت نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("وزن تبلت نباید بیشتر از 60 کاراکتر باشد"),
+    Interfaces: Joi.string()
+        .min(2).message("رابط تبلت نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("رابط تبلت نباید بیشتر از 60 کاراکتر باشد"),
+    color: Joi.string()
+        .required()
+        .min(2).message("رنگ تبلت نمیتواند کمتر از 2 کاراکتر باشد")
+        .max(60).message("رنگ تبلت نمیتواند بیشتر از 60 کاراکتر باشد"),
+    simcart: Joi.string()
+        .required()
+        .min(2).message("سیمکارت تبلت نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("سیمکارت تبلت نباید بیشتر از 60 کاراکتر باشد"),
+    body: Joi.string()
+        .min(4).message("بدنه تبلت نمیتواند کمتر از 8 کاراکتر باشد")
+        .max(500).message("بدنه تبلت نمیتواند بیشتر از 500 کاراکتر باشد"),
+    detail: Joi.string()
+        .min(4).message("ویژگی تبلت نمیتواند کمتر از 4 کاراکتر باشد")
+        .max(500).message("ویژگی تبلت نمیتواند بیشتر از 500 کاراکتر باشد")
+})
+
 
 module.exports = {
     mobileValidate,
-    laptopValdidate
+    laptopValdidate,
+    tabletValidation
 }

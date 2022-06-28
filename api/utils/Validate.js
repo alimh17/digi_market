@@ -167,8 +167,48 @@ const tabletValidation = Joi.object({
 })
 
 
+
+const consoleValidation = Joi.object({
+    name: Joi.string()
+        .required()
+        .min(4).message("نام کنسول بازی نباید کمتر از 4 کاراکتر باشد")
+        .max(255).message("نام کنسول بازی نمیتواند بیشتر از 255 کاراکتر باشد"),
+    price: Joi.string()
+        .required()
+        .min(4).message("قیمت کنسول بازی نباید کمتر از 4 کاراکتر باشد")
+        .max(9).message("قیمت کنسول بازی نمیتواند بیشتر از 9 کاراکتر باشد"),
+    connection: Joi.string()
+        .required()
+        .min(4).message("فناوری ارتباطی نباید کمتر از 4 کاراکتر باشد")
+        .max(9).message("فناوری ارتباطی نمیتواند بیشتر از 9 کاراکتر باشد"),
+    joyStick: Joi.string()
+        .required()
+        .min(2).message("تعداد دسته نباید کمتر از 4 کاراکتر باشد")
+        .max(9).message("تعداد دسته نمیتواند بیشتر از 9 کاراکتر باشد"),
+    dimensions: Joi.string()
+        .required()
+        .min(2).message("ابعاد کنسوی بازی نباید کمتر از 4 کاراکتر باشد")
+        .max(60).message("ابعاد کنسوی بازی نمیتواند بیشتر از 60 کاراکتر باشد"),
+    image: Joi.any().required(),
+    mainImage: Joi.any().required(),
+    ram: Joi.string()
+        .required()
+        .min(2).message("حافظه کنسول بازی نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("حافظه کنسول بازی نباید بیشتر از 60 کاراکتر باشد"),
+    ram_space: Joi.string()
+        .required()
+        .min(2).message("ظرفیت هارد دیسک  نباید کمتر از 2 کاراکتر باشد")
+        .max(60).message("ظرفیت هارد دیسک  نباید بیشتر از 60 کاراکتر باشد"),
+    detail: Joi.string()
+        .min(4).message("جزئیات کنسول بازی نمیتواند کمتر از 4 کاراکتر باشد")
+        .max(700).message("جزئیات کنسول بازی نمیتواند بیشتر از 700 کاراکتر باشد")
+})
+
+
+
 module.exports = {
     mobileValidate,
     laptopValdidate,
-    tabletValidation
+    tabletValidation,
+    consoleValidation
 }

@@ -22,5 +22,8 @@ export const showMobileFormAlert = (err) => {
         case 'SpecialFeatures': return err.SpecialFeatures
         case 'detail': return err.detail
         case 'internal_ram': return err.internal_ram
+        case 'joyStick': return err.joyStick
+        case 'ram_space': return err.ram_space
+        case 'connection': return err.connection
     }
 }

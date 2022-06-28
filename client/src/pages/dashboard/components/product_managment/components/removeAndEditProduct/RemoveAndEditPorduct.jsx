@@ -1,4 +1,5 @@
 import React from "react";
+import RemoveAndEditConsoles from "./RemoveAndEditConsoles";
 import RemoveAndEditLaptops from "./RemoveAndEditLaptops";
 import RemoveAndEditMobiles from "./RemoveAndEditMobiles";
 import RemoveAndEditTablets from "./RemoveAndEditTablets";
@@ -9,6 +10,7 @@ const RemoveAndEditPorduct = ({ product }) => {
       {product[0] && <RemoveAndEditMobiles />}
       {product[1] && <RemoveAndEditLaptops />}
       {product[2] && <RemoveAndEditTablets />}
+      {product[3] && <RemoveAndEditConsoles />}
     </div>
   );
 };

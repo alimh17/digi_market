@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { useToasts } from "react-toast-notifications";
 
 import InputWithLabel from "../../../../../../components/input-with-label/InputWithLabel";
-import { brands } from "../../../../../../utils/brnadConverToPersian";
+import { tabletBrands } from "../../../../../../utils/brnadConverToPersian";
 import { colorListFa } from "../../../../../../utils/colorLists";
 import { tabletSchema } from "../../../../../../utils/validation";
 import { showMobileFormAlert } from "../../../../../../utils/showFormAlert";
@@ -113,7 +113,7 @@ const TabletForm = () => {
               value={values.brand ? values.brand : ""}
             >
               <option value="">--برند محصول را انتخاب کنید--</option>
-              {brands.map((b, i) => (
+              {tabletBrands.map((b, i) => (
                 <option key={i} value={b}>
                   {b}
                 </option>

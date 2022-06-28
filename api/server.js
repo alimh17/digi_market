@@ -30,6 +30,7 @@ app.use('/api/v1', require('./routes/banner'))
 app.use('/api/v1', require('./routes/mobiles'))
 app.use('/api/v1', require('./routes/laptops'))
 app.use('/api/v1', require('./routes/tablets'))
+app.use('/api/v1', require('./routes/consoles'))
 
 
 //! -------------- create server -------------------

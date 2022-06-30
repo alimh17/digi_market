@@ -8,11 +8,10 @@ import {
   mobileSortByView,
 } from "../../../../actions/mobilesActions";
 import { orderingAction } from "../../../../actions/orderingAction";
-import { mobile } from "../../../../data/mobile";
 import { replaceNumberToPersian } from "../../../../utils/replacePrice";
 import { MobileContext } from "../../context/moibleContext";
 
-const Ordering = ({ active, setActive }) => {
+const Ordering = ({ active, setActive, mobile }) => {
   const context = useContext(MobileContext);
 
   const dispatch = useDispatch();
@@ -105,7 +104,8 @@ const Ordering = ({ active, setActive }) => {
         </ul>
       </span>
       <span className="hidden md:flex items-center mx-3 text-gray-400">
-        {replaceNumberToPersian(mobile.length)} <p className="mx-2 ">کالا</p>
+        {replaceNumberToPersian(mobile.allProduct.length)}{" "}
+        <p className="mx-2 ">کالا</p>
       </span>
     </div>
   );

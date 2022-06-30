@@ -2,11 +2,11 @@ import React, { createRef, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TiTick } from "react-icons/ti";
 
-import { mobileBrnads } from "../../../../../../data/mobileBrnads";
+import { mobileBrnads } from "../utils/brands";
 import { brandConvertToPersian } from "../../../../../../utils/brnadConverToPersian";
 import { brandSort, changeCheckbox } from "../utils/checkboxAndSort";
 
-//styleSheet
+// styleSheet
 import style from "./allBrands.module.css";
 import { sortMobilesByBrand } from "../../../../../../actions/mobilesActions";
 

@@ -18,6 +18,8 @@ export const switchColor = (color) => {
       return "خاکستری";
     case "gold":
       return "طلایی";
+    case "silver":
+      return "نقره ای";
     default:
       return "مشکی";
   }
@@ -42,6 +44,8 @@ export const switchColorFa = (color) => {
       return "gray";
     case "طلایی":
       return "gold";
+    case "نقره ای":
+      return "silver";
     default:
       return "";
   }

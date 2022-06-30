@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { mobileInit } from "../../actions/mobilesActions";
 import { MobileContext } from "./context/moibleContext";
 import MobileOrdering from "./mobile-products/components/mobile-ordering/MobileOrdering";
 import MobileProducts from "./mobile-products/MobileProducts";
@@ -14,24 +12,14 @@ const Mobile = () => {
     setGrouping(value);
   };
 
-  const dispatch = useDispatch();
-
-  const handleGetMobiles = async () => {
-    return await dispatch(mobileInit());
-  };
-
-  useEffect(() => {
-    handleGetMobiles();
-  }, []);
-
   return (
-    <div className={`md:mt-32 flex flex-col w-full`}>
-      <div className="w-full px-10 text-xl">
-        <h3 className=" my-4">
+    <div className={`md:mt-32 flex flex-col w-full font-sans `}>
+      <div className="w-full px-10 text-base ">
+        <h4 className="my-6 text-gray-400">
           <Link to="/">دیجی مارکت</Link> / <Link to="/mobiles">موبایل</Link>
-        </h3>
+        </h4>
       </div>
-      <div className="w-full flex">
+      <div className="w-full flex ">
         <MobileContext.Provider
           value={{ grouping, setGrouping: handleGroupin }}
         >

@@ -19,6 +19,7 @@ export const newLaptopRequest = async (data) => {
         const req = await axios.post(`${BASE_URL}/laptops`, formData, {
             Accept: "application/json"
         })
+        console.log(req)
         return req
     } catch (err) {
         console.log(err)

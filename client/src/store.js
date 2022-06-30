@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import { laptopsInit } from "./actions/laptopsAction";
 import { mobileInit } from "./actions/mobilesActions";
+
 import rootReducer from "./reducers";
 
 const store = configureStore({
@@ -8,11 +10,12 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       immutableCheck: {
-        ignoredPaths: ["mobiles"],
+        ignoredPaths: ["mobiles", "laptops"],
       },
     }),
 });
 
 store.dispatch(mobileInit());
+store.dispatch(laptopsInit());
 
 export default store;

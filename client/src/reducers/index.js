@@ -2,6 +2,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 
 import { allProductReducer } from "./allProducts";
 import { cartReducer } from "./cart";
+import { laptopsReducer } from "./laptops";
 import { loading } from "./loading";
 import { mobilesReducer } from "./mobiles";
 import { orderingReducer } from "./ordering";
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   product,
   ordering: orderingReducer,
   mobiles: mobilesReducer,
+  laptops: laptopsReducer,
   cart: cartReducer,
   loading,
   productSort,

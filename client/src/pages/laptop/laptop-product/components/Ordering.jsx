@@ -1,18 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { BiSort } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import {
-  mobileSortByCheapest,
-  mobileSortByExpensive,
-  mobileSortBySell,
-  mobileSortByView,
-} from "../../../../actions/mobilesActions";
+  laptopSortByCheapest,
+  laptopSortByExpensive,
+  laptopSortBySell,
+  laptopSortByView,
+} from "../../../../actions/laptopsAction";
 import { orderingAction } from "../../../../actions/orderingAction";
-import { mobile } from "../../../../data/mobile";
 import { replaceNumberToPersian } from "../../../../utils/replacePrice";
 import { LaptopContext } from "../../context/LaptopContext";
 
-const Ordering = ({ active, setActive }) => {
+const Ordering = ({ active, setActive, product }) => {
   const context = useContext(LaptopContext);
 
   const dispatch = useDispatch();
@@ -51,7 +50,7 @@ const Ordering = ({ active, setActive }) => {
               active[0] ? "active" : "deactive"
             } mx-3 p-2  cursor-pointer text-sm xl:text-base `}
             onClick={(e) => {
-              //   dispatch(mobileSortBySell());
+              dispatch(laptopSortBySell());
               handleActive(e);
             }}
           >
@@ -64,7 +63,7 @@ const Ordering = ({ active, setActive }) => {
             }`}
             onClick={(e) => {
               handleActive(e);
-              //   dispatch(mobileSortByView());
+              dispatch(laptopSortByView());
             }}
           >
             پربازدید ترین
@@ -85,7 +84,7 @@ const Ordering = ({ active, setActive }) => {
             }`}
             onClick={(e) => {
               handleActive(e);
-              //   dispatch(mobileSortByCheapest());
+              dispatch(laptopSortByCheapest());
             }}
           >
             ارزان ترین
@@ -97,7 +96,7 @@ const Ordering = ({ active, setActive }) => {
             }`}
             onClick={(e) => {
               handleActive(e);
-              //   dispatch(mobileSortByExpensive());
+              dispatch(laptopSortByExpensive());
             }}
           >
             گران ترین
@@ -105,7 +104,7 @@ const Ordering = ({ active, setActive }) => {
         </ul>
       </span>
       <span className="hidden md:flex items-center mx-3 text-gray-400">
-        {replaceNumberToPersian(mobile.length)} <p className="mx-2 ">کالا</p>
+        {replaceNumberToPersian(product.length)} <p className="mx-2 ">کالا</p>
       </span>
     </div>
   );

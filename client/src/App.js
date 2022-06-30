@@ -4,6 +4,7 @@ import MainLayouts from "./layouts/MainLayouts.jsx";
 
 import Home from "./pages/home/Home.jsx";
 import MobileProduct from "./pages/products/mobile-product/MobileProduct";
+import LaptopProduct from "./pages/products/laptop-product/LaptopProduct";
 import Mobile from "./pages/mobile/Mobile.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
@@ -23,8 +24,9 @@ const App = () => {
             <Route path="/" element={<App />}></Route>
             <Route index element={<Home />}></Route>
             <Route path="/mobiles" element={<Mobile />}></Route>
-            <Route path="/laptops" element={<Laptops />}></Route>
             <Route path="/mobiles/:id" element={<MobileProduct />}></Route>
+            <Route path="/laptops" element={<Laptops />}></Route>
+            <Route path="/laptops/:id" element={<LaptopProduct />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFoundPage />} />

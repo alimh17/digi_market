@@ -90,6 +90,9 @@ const MobileDevice = ({
             </div>
           </div>
         </section>
+        <section>
+          <MobileSpecifications item={item} />
+        </section>
         <MobileSimilar />
       </div>
     </>

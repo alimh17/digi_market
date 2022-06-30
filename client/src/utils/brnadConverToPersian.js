@@ -69,6 +69,49 @@ export const laptopBrands = [
   "ریزر",
   "سونی"
 ]
+
+export const laptopBrandsEn = [
+  "Asus",
+  "Lenove",
+  "Apple",
+  "HP",
+  "Huawei",
+  "Dell",
+  "Acer",
+  "MSI",
+  "Microsoft",
+  "Razer",
+  "Sony",
+]
+
+export const laptopBrandConvertToPersian = (brand) => {
+  switch (brand) {
+    case "Asus":
+      return "ایسوس";
+    case "Lenove":
+      return "لنوو";
+    case "Apple":
+      return "اپل";
+    case "HP":
+      return "اچ پی";
+    case "Huawei":
+      return "هوآوی";
+    case "Dell":
+      return "دل";
+    case "Acer":
+      return "ایسر";
+    case "MSI":
+      return "ام اس آی";
+    case "Microsoft":
+      return "مایکروسافت";
+    case "Razer":
+      return "ریزر";
+    case "Sony":
+      return "سونی";
+    default:
+      return "";
+  }
+};
 export const tabletBrands = [
   "سامسونگ",
   "اپل",

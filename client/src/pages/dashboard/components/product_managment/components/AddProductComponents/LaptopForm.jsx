@@ -238,7 +238,6 @@ const LaptopForm = () => {
             </label>
             <select
               id="ram_type"
-              placeholder=""
               name="ram_type"
               className="p-4 mt-8 border outline-0
           rounded-lg focus:border-indigo-800 w-full border-gray-400"

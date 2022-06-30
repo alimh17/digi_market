@@ -8,6 +8,7 @@ export const colorObject = {
   pink: "صورتی",
   gray: "خاکستری",
   gold: "طلایی",
+  silver: "نقره ای",
 };
 
 export const colorList = [
@@ -20,6 +21,7 @@ export const colorList = [
   "pink",
   "gray",
   "gold",
+  "silver",
 ];
 export const colorListFa = [
   "مشکی",
@@ -31,4 +33,5 @@ export const colorListFa = [
   "صورتی",
   "خاکستری",
   "طلایی",
+  "نقره ای",
 ];

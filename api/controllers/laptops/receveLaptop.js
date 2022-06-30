@@ -32,14 +32,14 @@ const receveLaptop = async (req, res, next) => {
             const sell = Math.floor(Math.random() * (1500 - 1000) + 1000)
             const date = new Date()
 
-            const path = pathImages(image, `public/images/laptops/` , mainImage)
+            const path = pathImages(image, `public/images/laptops/`, mainImage)
             const mainPath = mainLaptopPath(mainImage, image)
 
             if (laptops) {
                 const sampleLaptops = [...laptops.laptops]
                 sampleLaptops.push({
-                    name, price, screen, brand, cpu_model, ram, dimensions, weight, cpu_series, gpu_maker, ram_type, cpu_maker, detail
-                    , weight, color: colors, view: view.toString(), sell: sell.toString(), date,
+                    name, price, screen, brand, cpu_model, ram, dimensions, weight, cpu_series, gpu_maker, ram_type, cpu_maker, detail, rate,
+                    weight, color: colors, view: view.toString(), sell: sell.toString(), date,
                     images: path, mainImage: mainPath
                 })
                 const uniq = _.uniqBy(sampleLaptops, 'name')
@@ -48,7 +48,7 @@ const receveLaptop = async (req, res, next) => {
                 })
                 return res.status(201).json({
                     status: "success",
-                    message: "موبایل با موفقیت اضافه شد"
+                    message: "لپ تاپ با موفقیت اضافه شد"
                 })
             } else {
                 const laptop = await Laptops.create({

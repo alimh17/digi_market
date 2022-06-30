@@ -2,27 +2,31 @@ import React, { createRef, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TiTick } from "react-icons/ti";
 
-import { mobileBrnads } from "../../../../../../data/mobileBrnads";
-import { brandConvertToPersian } from "../../../../../../utils/brnadConverToPersian";
+import {
+  brandConvertToPersian,
+  laptopBrandConvertToPersian,
+  laptopBrandsEn,
+} from "../../../../../../utils/brnadConverToPersian";
+import { laptopBrnads } from "../utils/brands";
 import { brandSort, changeCheckbox } from "../utils/checkboxAndSort";
 
 //styleSheet
 import style from "./allBrands.module.css";
-import { sortMobilesByBrand } from "../../../../../../actions/mobilesActions";
+import { sortLaptopsByBrand } from "../../../../../../actions/laptopsAction";
 
 const AllBrands = ({ show }) => {
   const brandRef = useRef([]);
   const dispatch = useDispatch();
-  const brandMobiles = useSelector((state) => state.mobiles);
-  const { brands } = brandMobiles;
+  const brandLaptops = useSelector((state) => state.laptops);
+  const { brands } = brandLaptops;
 
-  brandRef.current = mobileBrnads.map(
+  brandRef.current = laptopBrnads.map(
     (_, i) => brandRef.current[i] ?? createRef()
   );
 
   const handleCheckbox = (e, item) => {
     const getBrands = brandSort(brands, item);
-    dispatch(sortMobilesByBrand(getBrands));
+    dispatch(sortLaptopsByBrand(getBrands));
 
     changeCheckbox(brandRef, item);
   };
@@ -30,7 +34,7 @@ const AllBrands = ({ show }) => {
   return (
     <>
       <div className={`w-full ${!show && "hidden"}`}>
-        {mobileBrnads.map((item, index) => (
+        {laptopBrnads.map((item, index) => (
           <div
             key={index}
             className="flex justify-between border-b cursor-pointer"
@@ -55,7 +59,7 @@ const AllBrands = ({ show }) => {
               <TiTick className={` ${style.tick} text-4xl`} />
               <span className={`${style.replace}`}></span>
               <p className="p-3 md:text-base font-bold lg:text-lg text-gray-500">
-                {brandConvertToPersian(item.name)}
+                {laptopBrandConvertToPersian(item.name)}
               </p>
             </span>
             <h2 className="my-auto mx-3 text-gray-400 md:text-md">

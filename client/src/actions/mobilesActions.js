@@ -71,6 +71,8 @@ export const mobileSortByCheapest = () => (dispatch, getState) => {
   copyState.allProduct = sorted;
   dispatch({ type: "SORT_BY_SELL", payload: copyState });
 };
+
+
 export const mobileSortByExpensive = () => (dispatch, getState) => {
   const copyState = { ...getState().mobiles };
   const { allProduct } = copyState;
@@ -243,4 +245,33 @@ export const mobileSortByWeight = (range) => async (dispatch, getState) => {
   const filter = weight.filter(f => f !== false)
   copyState.allProduct = filter
   return dispatch({ type: "SORT_BY_WEIGHT", payload: copyState })
+}
+
+
+
+export const mobileSortByRam = (ram) => async (dispatch, getState) => {
+  const copyState = { ...getState().mobiles };
+  copyState.ram = ram
+  dispatch({ type: "SORT_BY_RAM", payload: copyState })
+
+  const mobiles = await getAllMobiles()
+
+  if (copyState.ram.length === 0) {
+    copyState.allProduct = mobiles[0]
+    dispatch({ type: "SORT_BY_RAM", payload: copyState })
+  } else {
+    let foundRamInclude = mobiles[0].map(item => {
+      let arr = item.ram.split(",")
+      arr = _.map(arr, _.trim)
+      if (_.intersection(arr, copyState.ram).length !== 0) {
+        return item
+      } else {
+        return false
+      }
+    })
+    const filter = foundRamInclude.filter(f => f !== false)
+    copyState.allProduct = filter
+    dispatch({ type: "SORT_BY_RAM", payload: copyState })
+  }
+
 }

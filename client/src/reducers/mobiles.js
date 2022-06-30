@@ -3,7 +3,8 @@ const init = {
   brands: [],
   colors: [],
   priceRange: [0, 50000000],
-  network: []
+  network: [],
+  ram: [],
 };
 
 export const mobilesReducer = (state = init, action) => {
@@ -25,6 +26,8 @@ export const mobilesReducer = (state = init, action) => {
     case "SORT_BY_NETWORK":
       return action.payload;
     case "SORT_BY_WEIGHT":
+      return action.payload;
+    case "SORT_BY_RAM":
       return action.payload;
     default:
       return state;

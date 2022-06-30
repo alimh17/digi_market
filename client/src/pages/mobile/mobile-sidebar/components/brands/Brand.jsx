@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 import _ from "lodash";
 import AllBrands from "./components/AllBrands";

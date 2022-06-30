@@ -8,6 +8,8 @@ export const handleRouts = (path) => {
       return true;
     case '/laptops':
       return true;
+    case `/laptops/${path.split("/")[2]}`:
+      return true;
     case "/card":
       return true;
     default:

@@ -8,6 +8,7 @@ import { FaTimes } from "react-icons/fa";
 
 import "./laptop_ordergin.module.css";
 import { LaptopContext } from "../../../context/LaptopContext";
+import { laptopSortByCheapest, laptopSortByExpensive, laptopSortBySell, laptopSortByView } from "../../../../../actions/laptopsAction";
 // import {
 //   mobileSortByCheapest,
 //   mobileSortByExpensive,
@@ -84,7 +85,7 @@ const LaptopOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      // dispatch(mobileSortBySell());
+                      dispatch(laptopSortBySell());
                     }}
                   >
                     پرفروش ترین
@@ -94,7 +95,7 @@ const LaptopOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      // dispatch(mobileSortByView());
+                      dispatch(laptopSortByView());
                     }}
                   >
                     پر بازدید ترین
@@ -113,7 +114,7 @@ const LaptopOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      // dispatch(mobileSortByCheapest());
+                      dispatch(laptopSortByCheapest());
                     }}
                   >
                     ارزان ترین
@@ -123,7 +124,7 @@ const LaptopOrdering = () => {
                     onClick={(e) => {
                       context.setGrouping(e.target.textContent);
                       dispatch(hideOrdering());
-                      // dispatch(mobileSortByExpensive());
+                      dispatch(laptopSortByExpensive());
                     }}
                   >
                     گران ترین

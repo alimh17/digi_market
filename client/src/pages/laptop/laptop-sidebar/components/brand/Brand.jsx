@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 import _ from "lodash";
 import AllBrands from "./components/AllBrands";
 import { FaSearch } from "react-icons/fa";
-import { brandConvertToPersian } from "../../../../../utils/brnadConverToPersian";
-import { useDispatch, useSelector } from "react-redux";
+import { laptopBrandConvertToPersian } from "../../../../../utils/brnadConverToPersian";
+import { useSelector } from "react-redux";
 
 const Brand = () => {
   const [showBrand, setShowBrand] = useState(false);
 
-  const dispatch = useDispatch();
-  const selectedBrand = useSelector((state) => state.mobiles);
+  const selectedBrand = useSelector((state) => state.laptops);
   const { brands } = selectedBrand;
 
   const handleBrandToggle = () => {
@@ -52,7 +51,7 @@ const Brand = () => {
         <ul className={`${!showBrand && "hidden"} flex flex-wrap`}>
           {brands.map((brand, index) => (
             <li key={index} className="p-3 border-2 my-1 rounded-lg mx-2">
-              {brandConvertToPersian(brand)}
+              {laptopBrandConvertToPersian(brand)}
             </li>
           ))}
         </ul>

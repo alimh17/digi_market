@@ -41,7 +41,6 @@ export const lapTopSchema = Yup.object({
 export const tabletSchema = Yup.object({
     name: Yup.string().required("نام تبلت الزامی میباشد").min(4, "نام تبلت نباید کمتر از 4 کاراکتر باشد").max(255, "نام تبلت نباید بیشتر از 255 کاراکتر باشد").trim(),
     price: Yup.string().required("قیمت تبلت الزامی میباشد").matches(/^\d+$/, "قیمت تبلت باید شامل اعداد باشد").min(4, "قیمت تبلت نباید کمتر از 4 کاراکتر باشد").max(9, "قیمت تبلت نباید بیشتر از  9 کاراکتر باشد").trim(),
-    screen: Yup.string().required("اندازه صفحه تبلت الزامی میباشد").min(4, "اندازه صفحه تبلت نباید کمتر از 4 کاراکتر باشد").max(60, "اندازه صفحه تبلت نباید بیشتر ا 16 کاراکتر باشد"),
     brand: Yup.string().required("برند تبلت الزامی میباشد"),
     image: Yup.mixed().required("تصاویر تبلت الزامی میباشند"),
     mainImage: Yup.mixed().required("تصویر اصلی تبلت الزامی میباشد"),
@@ -52,7 +51,6 @@ export const tabletSchema = Yup.object({
     simcart: Yup.string().required("سیمکارت تبلت الزامی میباشد").min(4, "سیمکارت تبلت نمیتواند کمتر از 4 کاراکتر باشد").max(60, "سیمکارت تبلت نمیتواند بیشتر از 60 کاراکتر باشد"),
     color: Yup.array().required("رنگ تبلت الزامی میباشد"),
     body: Yup.string().min(4, "اطلاعات بدنه نمیتواند کمتر از 4 کاراکتر باشد").max(500, "اطلاعات بدنه نمیتواند بیشتر از 500 کاراکتر باشد"),
-    Interfaces: Yup.string().min(4, "رابط نمیتواند کمتر از 4 کاراکتر باشد").max(500, "رابط نمیتواند بیشتر از 500 کاراکتر باشد"),
     detail: Yup.string().min(4, "جزئیات تبلت نمیتواند کمتر از 4 کاراکتر باشد").max(700, "جزئیات تبلت نمیتواند بیشتر از 700 کاراکتر باشد")
 })
 export const consoleSchema = Yup.object({

@@ -27,6 +27,7 @@ const receveMobile = async (req, res, next) => {
                 const rate = Math.random() * (5 - 3) + 3
                 const view = Math.floor(Math.random() * (1500 - 1000) + 1000)
                 const sell = Math.floor(Math.random() * (1500 - 1000) + 1000)
+                const date = new Date()
 
                 //! ------------------ save main image ----------------
                 const path = pathImages(image, `public/images/mobiles/`, mainImage)
@@ -35,7 +36,7 @@ const receveMobile = async (req, res, next) => {
                 if (mobiles) {
                     const sampleMobiles = [...mobiles.mobiles]
                     sampleMobiles.push({
-                        name, price, screen, brand, network, ram, rate: rate.toString().slice(0, 3), dimensions, weight, simcart, color: colors, body, view: view.toString(), sell: sell.toString(), date: new Date(),
+                        name, price, screen, brand, network, ram, rate: rate.toString().slice(0, 3), dimensions, weight, simcart, color: colors, body, view: view.toString(), sell: sell.toString(), date ,
                         features, images: path, mainImage: mainPath
                     })
                     const uniq = _.uniqBy(sampleMobiles, 'name')

@@ -87,17 +87,6 @@ const TabletForm = () => {
             onBlur={handleBlur}
             value={values.price ? values.price : ""}
           />
-          <InputWithLabel
-            label="اندازه صفحه"
-            from="screen"
-            type="text"
-            id="screen"
-            name="screen"
-            placeholder="بین 10 تا 13 اینچ"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.screen ? values.screen : ""}
-          />
           <div className=" w-full">
             <label htmlFor="brand" className="">
               برند
@@ -204,17 +193,6 @@ const TabletForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.simcart ? values.simcart : ""}
-          />
-          <InputWithLabel
-            label="رابط ها"
-            from="Interfaces"
-            id="Interfaces"
-            name="Interfaces"
-            placeholder="جک 3.5 میلی‌متری صدا"
-            type="text"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.Interfaces ? values.Interfaces : ""}
           />
           <div className="m-3 w-full">
             <label htmlFor="color" className="m-2">

@@ -1,4 +1,4 @@
-import React, { createRef, useRef, useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { TiTick } from "react-icons/ti";
 import { BsChevronUp } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
@@ -30,6 +30,20 @@ const Color = () => {
 
     changeCheckbox(colorRef, item);
   };
+
+  useEffect(() => {
+    colors.forEach((color) => {
+      if (colorRef) {
+        colorRef.current.forEach((el, i) => {
+          if (el.current.classList.contains(color)) {
+            el.current.checked
+              ? (el.current.checked = false)
+              : (el.current.checked = true);
+          }
+        });
+      }
+    });
+  }, []);
 
   return (
     <section className="flex flex-col py-5 border-b">

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 import { replacePrice } from "../../../../../utils/replacePrice";
 import Slider from "@mui/material/Slider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   mobileSortByWeight,
   sortMobilesByPriceRange,
@@ -10,18 +10,19 @@ import {
 
 const Weigtht = () => {
   const [show, setShow] = useState(false);
-  const [range, setRange] = useState([100, 450]);
+  // const [range, setRange] = useState([100, 450]);
 
   const dispatch = useDispatch();
 
   const handleChange = (e, newValue) => {
-    setRange(newValue);
     dispatch(mobileSortByWeight(newValue));
   };
 
   function valuetext(value) {
     return `${value}°C`;
   }
+
+  const range = useSelector((state) => state.mobiles.weigtht);
 
   return (
     <section className="flex flex-col  py-5 border-b">

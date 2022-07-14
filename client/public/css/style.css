@@ -26,10 +26,10 @@ body,
 html {
   font-family: "BYekan", sans-serif !important;
   direction: rtl !important;
-  scroll-behavior: smooth !important;
 }
 
 body::-webkit-scrollbar {
+  scroll-behavior: smooth !important;
   width: 0.5rem;
 }
 
@@ -48,4 +48,19 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.Sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  height: 29rem;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    height: 17rem;
+    margin: auto;
+  }
 }

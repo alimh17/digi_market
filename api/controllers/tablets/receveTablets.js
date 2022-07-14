@@ -19,7 +19,7 @@ const receveTablets = async (req, res, next) => {
                     message
                 })
             } else {
-                const { name, price, screen, brand, network, ram, internal_ram, weight, simcart, color, body, detail, Interfaces } = value
+                const { name, price, brand, network, ram, internal_ram, weight, simcart, color, body, detail } = value
                 const image = req.files.image
                 const mainImage = req.files.mainImage
                 const tablets = await Tablets.findOne()
@@ -37,7 +37,7 @@ const receveTablets = async (req, res, next) => {
                 if (tablets) {
                     const sampleTablets = [...tablets.tablets]
                     sampleTablets.push({
-                        name, price, screen, brand, network, ram, internal_ram, rate: rate.toString().slice(0, 3), weight, simcart, color: colors, body, detail, Interfaces, view: view.toString(), sell: sell.toString(), date,
+                        name, price, brand, network, ram, internal_ram, rate: rate.toString().slice(0, 3), weight, simcart, color: colors, body, detail, view: view.toString(), sell: sell.toString(), date,
                         images: path, mainImage: mainPath
                     })
                     const uniq = _.uniqBy(sampleTablets, 'name')
@@ -55,12 +55,11 @@ const receveTablets = async (req, res, next) => {
                                 _id: new mongoose.Types.ObjectId(),
                                 name,
                                 price,
-                                screen,
                                 brand,
                                 network,
                                 ram,
                                 internal_ram,
-                                rate,
+                                rate: rate.toString().slice(0, 3),
                                 weight,
                                 simcart,
                                 view,
@@ -68,7 +67,6 @@ const receveTablets = async (req, res, next) => {
                                 color,
                                 body,
                                 detail,
-                                Interfaces,
                                 date,
                                 images: path,
                                 mainImage: mainPath

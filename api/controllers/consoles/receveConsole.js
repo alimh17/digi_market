@@ -12,13 +12,13 @@ const reseveConsole = async (req, res, next) => {
 
             if (error) {
                 const message = error.details.map(item => item.message)
+                console.log(message)
                 return res.status(500).json({
                     status: "failed",
                     message
                 })
             } else {
                 const { name, price, connection, joyStick, ram, dimensions, ram_space, detail } = value
-                console.log()
                 const image = req.files.image
                 const mainImage = req.files.mainImage
                 const consoles = await Consoles.findOne()

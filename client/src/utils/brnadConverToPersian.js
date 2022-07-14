@@ -126,3 +126,26 @@ export const tabletBrands = [
   "باسئوس",
   "سونی"
 ]
+
+export const tabletBrandConvertToPersian = (brand) => {
+  switch (brand) {
+    case "Samsung":
+      return "سامسونگ";
+    case "Lenove":
+      return "لنوو";
+    case "Apple":
+      return "اپل";
+    case "Huawei":
+      return "هوآوی";
+    case "Microsoft":
+      return "مایکروسافت";
+    case "Sony":
+      return "سونی";
+    case "Nokia":
+      return "نوکیا";
+    case "GPlus":
+      return "جی پلاس";
+    default:
+      return "";
+  }
+};

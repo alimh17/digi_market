@@ -1,7 +1,7 @@
 const { mongoose, Schema } = require('mongoose');
 
 const tabletSchema = new Schema({
-    tablets : [
+    tablets: [
         {
             name: {
                 type: String,
@@ -9,10 +9,6 @@ const tabletSchema = new Schema({
                 unique: true,
             },
             price: {
-                type: String,
-                required: true
-            },
-            screen: {
                 type: String,
                 required: true
             },
@@ -53,7 +49,6 @@ const tabletSchema = new Schema({
                 type: String,
                 required: true
             },
-
             weight: {
                 type: String,
                 required: true
@@ -68,7 +63,6 @@ const tabletSchema = new Schema({
             },
             detail: String,
             body: String,
-            Interfaces: String,
             date: Date
         }
     ]

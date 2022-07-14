@@ -4,6 +4,9 @@ import Color from "./components/color/Color";
 import RangePrice from "./components/range-price/RangePrice";
 import Weigtht from "./components/weight/Weight";
 import CpuSeries from "./components/cpu_series/CpuSeries";
+import Screen from "./components/screen/Screen";
+import RamType from "./components/ram_type/RamType";
+import Ram from "./components/ram/Ram";
 
 const LaptopSidebar = () => {
   return (
@@ -15,9 +18,10 @@ const LaptopSidebar = () => {
         <Color />
         <Weigtht />
         <CpuSeries />
-        {/* <Type /> */}
+        <Screen />
+        <RamType />
+        <Ram />
         {/* <Network /> */}
-        {/* <Ram /> */}
       </div>
     </div>
   );

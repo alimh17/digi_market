@@ -10,6 +10,7 @@ import { changeCheckbox, colorSort } from "./utils/checkboxAndSort";
 import style from "./color.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sortLaptopsByColor } from "../../../../../actions/laptopsAction";
+import { useEffect } from "react";
 
 const Color = () => {
   const [showColor, setShowColor] = useState(false);
@@ -28,8 +29,22 @@ const Color = () => {
     const getColors = colorSort(colors, item);
     dispatch(sortLaptopsByColor(getColors));
 
-    changeCheckbox(colorRef, item);
+    changeCheckbox(colorRef, item, colors);
   };
+
+  useEffect(() => {
+    colors.forEach((color) => {
+      if (colorRef) {
+        colorRef.current.forEach((el, i) => {
+          if (el.current.classList.contains(color)) {
+            el.current.checked
+              ? (el.current.checked = false)
+              : (el.current.checked = true);
+          }
+        });
+      }
+    });
+  }, []);
 
   return (
     <section className="flex flex-col py-5 border-b">

@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { showLoadingAction } from "../../../actions/loadingAction";
 
 import { setPorductAction } from "../../../actions/setProductAction";
-import LaptopCart from "./components/LaptopCart";
 import Ordering from "./components/Ordering";
 
-import Carts from "./components/Carts";
+import Cards from "./components/Cards";
 
 import "./laptop_product.module.css";
 
@@ -44,8 +43,7 @@ const LaptopProduct = () => {
               localStorage.setItem("product", JSON.stringify(item));
             }}
           >
-            <LaptopCart item={item} />
-            <Carts item={item} />
+            <Cards item={item} />
           </div>
         ))}
       </section>

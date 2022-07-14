@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 import { replacePrice } from "../../../../../utils/replacePrice";
 import Slider from "@mui/material/Slider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sortLaptopsByPriceRange } from "../../../../../actions/laptopsAction";
 
 const RangePrice = () => {
   const [show, setShow] = useState(false);
-  const [range, setRange] = useState([0, 200000000]);
 
   const dispatch = useDispatch();
+  const range = useSelector((state) => state.laptops.priceRange);
 
   const handleChange = (e, newValue) => {
-    setRange(newValue);
     dispatch(sortLaptopsByPriceRange(newValue));
   };
 

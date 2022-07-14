@@ -4,6 +4,10 @@ const init = {
   colors: [],
   cpuSeries: [],
   priceRange: [0, 200000000],
+  screen: [12, 18],
+  ramType: [],
+  ram: [],
+  weight: [0.5, 4.0]
 };
 
 export const laptopsReducer = (state = init, action) => {
@@ -27,6 +31,10 @@ export const laptopsReducer = (state = init, action) => {
     case "SORT_BY_CPU_SERIES_LAPTOPS":
       return action.payload;
     case "SORT_BY_WEIGHT_LAPTOPS":
+      return action.payload;
+    case "SORT_BY_SCREEN_LAPTOPS":
+      return action.payload;
+    case "SORT_BY_RAM_LAPTOPS":
       return action.payload;
     default:
       return state;

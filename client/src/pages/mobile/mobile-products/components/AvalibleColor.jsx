@@ -3,7 +3,7 @@ import { switchColorFa } from "../../../../utils/switchColor";
 
 const AvalibleColor = ({ item }) => {
   return (
-    <div className="absolute flex md:flex-col  md:left-2 md:top-2  w-full items-end">
+    <div className="absolute flex md:flex-col bottom-2 p-2 md:p-0 md:left-2 md:top-2  w-full items-end">
       {item.color.map((c, i) => (
         <div key={i}>
           <span

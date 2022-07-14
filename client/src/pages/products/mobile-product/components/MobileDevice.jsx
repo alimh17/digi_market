@@ -66,9 +66,9 @@ const MobileDevice = ({
           <AiOutlineSafety className="text-2xl mx-3" />
           گارانتی {replaceNumberToPersian(18)} ماهه
         </div>
-        <MobileSimilar />
         <MobileOptions item={item} />
         <MobileSpecifications item={item} />
+        <MobileSimilar />
         <CartButton item={item} />
       </div>
 

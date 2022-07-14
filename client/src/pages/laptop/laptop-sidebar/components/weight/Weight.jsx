@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 import { replacePrice } from "../../../../../utils/replacePrice";
 import Slider from "@mui/material/Slider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { laptopsSortByWeight } from "../../../../../actions/laptopsAction";
 
 const Weigtht = () => {
   const [show, setShow] = useState(false);
-  const [range, setRange] = useState([0.5, 4.0]);
 
   const dispatch = useDispatch();
+  const range = useSelector((state) => state.laptops.weight);
 
   const handleChange = (e, newValue) => {
-    setRange(newValue);
     dispatch(laptopsSortByWeight(newValue));
   };
 

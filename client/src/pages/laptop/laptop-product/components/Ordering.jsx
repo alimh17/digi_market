@@ -69,15 +69,6 @@ const Ordering = ({ active, setActive, product }) => {
             پربازدید ترین
           </li>
           <li
-            id={3}
-            className={`mx-3 p-2  cursor-pointer text-sm xl:text-base ${
-              active[2] ? "active" : "deactive"
-            }`}
-            onClick={(e) => handleActive(e)}
-          >
-            جدید ترین
-          </li>
-          <li
             id={4}
             className={`mx-3 p-2  cursor-pointer text-sm xl:text-base ${
               active[3] ? "active" : "deactive"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MobileContext } from "./context/moibleContext";
 import MobileOrdering from "./mobile-products/components/mobile-ordering/MobileOrdering";

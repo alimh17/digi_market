@@ -17,7 +17,7 @@ const Aside = ({ active, setActive }) => {
   };
 
   return (
-    <aside className="sticky top-0 md:w-4/12 lg:w-3/12 hidden md:flex flex-col border-l h-screen border-l-gray-400">
+    <aside className="sticky top-0 md:w-5/12 lg:w-4/12 hidden md:flex flex-col border-l h-screen border-l-gray-400">
       <form className="border-b-2 flex items-center justify-center h-32">
         <button
           type="submit"

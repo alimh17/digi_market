@@ -1,4 +1,4 @@
-import React, { createRef, useRef, useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { TiTick } from "react-icons/ti";
 import { BsChevronUp } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
@@ -29,6 +29,20 @@ const CpuSeries = () => {
 
     changeCheckbox(cpuSeriesRef, switchCpu(item));
   };
+
+  useEffect(() => {
+    cpuSeries.forEach((cpu) => {
+      if (cpuSeriesRef) {
+        cpuSeriesRef.current.forEach((el, i) => {
+          if (el.current.classList.contains(switchCpu(cpu))) {
+            el.current.checked
+              ? (el.current.checked = false)
+              : (el.current.checked = true);
+          }
+        });
+      }
+    });
+  }, []);
 
   return (
     <section className="flex flex-col py-5 border-b">

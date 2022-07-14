@@ -31,6 +31,7 @@ const AllBrands = ({ show }) => {
     changeCheckbox(brandRef, item);
   };
 
+
   return (
     <>
       <div className={`w-full ${!show && "hidden"}`}>

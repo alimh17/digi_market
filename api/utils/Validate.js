@@ -121,10 +121,6 @@ const tabletValidation = Joi.object({
         .required()
         .min(4).message("قیمت تبلت نباید کمتر از 4 کاراکتر باشد")
         .max(9).message("قیمت تبلت نمیتواند بیشتر از 9 کاراکتر باشد"),
-    screen: Joi.string()
-        .required()
-        .min(4).message("اندازه صفحه تبلت نباید کمتر از 4 کاراکتر باشد")
-        .max(60).message("اندازه صفحه تبلت نمیتواند بیشتر از 60 کاراکتر باشد"),
     brand: Joi.string()
         .required()
         .min(2).message("برند تبلت نباید کمتر از 2 کاراکتر باشد")
@@ -147,9 +143,6 @@ const tabletValidation = Joi.object({
         .required()
         .min(2).message("وزن تبلت نباید کمتر از 2 کاراکتر باشد")
         .max(60).message("وزن تبلت نباید بیشتر از 60 کاراکتر باشد"),
-    Interfaces: Joi.string()
-        .min(2).message("رابط تبلت نباید کمتر از 2 کاراکتر باشد")
-        .max(60).message("رابط تبلت نباید بیشتر از 60 کاراکتر باشد"),
     color: Joi.string()
         .required()
         .min(2).message("رنگ تبلت نمیتواند کمتر از 2 کاراکتر باشد")
@@ -163,7 +156,7 @@ const tabletValidation = Joi.object({
         .max(500).message("بدنه تبلت نمیتواند بیشتر از 500 کاراکتر باشد"),
     detail: Joi.string()
         .min(4).message("ویژگی تبلت نمیتواند کمتر از 4 کاراکتر باشد")
-        .max(500).message("ویژگی تبلت نمیتواند بیشتر از 500 کاراکتر باشد")
+        .max(700).message("ویژگی تبلت نمیتواند بیشتر از 700 کاراکتر باشد")
 })
 
 
@@ -176,15 +169,15 @@ const consoleValidation = Joi.object({
     price: Joi.string()
         .required()
         .min(4).message("قیمت کنسول بازی نباید کمتر از 4 کاراکتر باشد")
-        .max(9).message("قیمت کنسول بازی نمیتواند بیشتر از 9 کاراکتر باشد"),
+        .max(32).message("قیمت کنسول بازی نمیتواند بیشتر از 32 کاراکتر باشد"),
     connection: Joi.string()
         .required()
         .min(4).message("فناوری ارتباطی نباید کمتر از 4 کاراکتر باشد")
-        .max(9).message("فناوری ارتباطی نمیتواند بیشتر از 9 کاراکتر باشد"),
+        .max(60).message("فناوری ارتباطی نمیتواند بیشتر از60  کاراکتر باشد"),
     joyStick: Joi.string()
         .required()
         .min(2).message("تعداد دسته نباید کمتر از 4 کاراکتر باشد")
-        .max(9).message("تعداد دسته نمیتواند بیشتر از 9 کاراکتر باشد"),
+        .max(60).message("تعداد دسته نمیتواند بیشتر از 60  کاراکتر باشد"),
     dimensions: Joi.string()
         .required()
         .min(2).message("ابعاد کنسوی بازی نباید کمتر از 4 کاراکتر باشد")

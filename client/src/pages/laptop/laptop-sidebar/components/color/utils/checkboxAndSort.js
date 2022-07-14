@@ -15,7 +15,7 @@ export const colorSort = (color, item) => {
   }
 };
 
-export const changeCheckbox = (colorRef, item) => {
+export const changeCheckbox = (colorRef, item, colors) => {
   if (colorRef) {
     colorRef.current.forEach((el, i) => {
       if (el.current.classList.contains(item)) {

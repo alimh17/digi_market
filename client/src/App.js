@@ -11,6 +11,8 @@ import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import NotFoundPage from "./pages/404/NotFoundPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Laptops from "./pages/laptop/Laptops.jsx";
+import Tablets from "./pages/tablets/Tablets.jsx";
+import TabletProduct from "./pages/products/tablet-product/TabletProduct.jsx";
 
 const App = () => {
 
@@ -27,6 +29,8 @@ const App = () => {
             <Route path="/mobiles/:id" element={<MobileProduct />}></Route>
             <Route path="/laptops" element={<Laptops />}></Route>
             <Route path="/laptops/:id" element={<LaptopProduct />}></Route>
+            <Route path="/tablets" element={<Tablets />}></Route>
+            <Route path="/tablets/:id" element={<TabletProduct />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFoundPage />} />

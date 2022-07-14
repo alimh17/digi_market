@@ -1,4 +1,4 @@
-import React, { createRef, useRef, useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { TiTick } from "react-icons/ti";
 import { BsChevronUp } from "react-icons/bs";
 
@@ -31,6 +31,20 @@ const Network = () => {
 
     changeCheckbox(networkRef, item);
   };
+
+  useEffect(() => {
+    network.forEach((n) => {
+      if (networkRef) {
+        networkRef.current.forEach((el) => {
+          if (el.current.classList.contains(n)) {
+            el.current.checked
+              ? (el.current.checked = false)
+              : (el.current.checked = true);
+          }
+        });
+      }
+    });
+  }, []);
 
   return (
     <section className="flex flex-col py-5 border-b">

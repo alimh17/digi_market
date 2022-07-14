@@ -207,6 +207,7 @@ export const sortLaptopsByPriceRange = (value) => async (dispatch, getState) => 
 
 export const laptopsSortByWeight = (range) => async (dispatch, getState) => {
     const copyState = { ...getState().laptops };
+    copyState.weight = range
     const laptops = await getAllLaptops()
 
     const weight = laptops[0].map(item => {
@@ -253,6 +254,87 @@ export const sortLaptopsByCpuSeries = (cpu) => async (dispatch, getState) => {
             payload: laptops,
         });
     }
-
-
 };
+
+
+
+export const laptopsSortByScreen = (range) => async (dispatch, getState) => {
+    const copyState = { ...getState().laptops };
+    copyState.screen = range
+    const laptops = await getAllLaptops()
+
+    const weight = laptops[0].map(item => {
+        let val = item.screen.replace("گرم", "")
+        val = replacePersianNumber(val)
+        val = val.replace("اینچ", "")
+        if (range[0] < +val && range[1] > +val) {
+            return item
+        } else {
+            return false
+        }
+    })
+    const filter = weight.filter(f => f !== false)
+    copyState.allProduct = filter
+    return dispatch({ type: "SORT_BY_SCREEN_LAPTOPS", payload: copyState })
+}
+
+
+
+export const sortLaptopsByRam = (ram) => async (dispatch, getState) => {
+    let laptops = { ...getState().laptops };
+    const { allProduct } = laptops;
+    const copyRam = ram;
+    laptops.ramType = copyRam;
+
+    const allLaptops = await getAllLaptops()
+
+
+    if (_.isEmpty(laptops.ramType)) {
+        laptops.allProduct = allLaptops[0]
+        dispatch({ type: "SORT_BY_RAM_LAPTOPS", payload: laptops });
+    } else {
+        let filtered = allProduct.map(item => {
+            return copyRam.includes(item.ram_type) ? item : false
+        })
+        filtered = filtered.filter(f => f !== false)
+        laptops.allProduct = filtered
+        dispatch({ type: "SORT_BY_RAM_LAPTOPS", payload: laptops });
+
+    }
+
+    if (laptops.brands.length === 0 && laptops.colors.length === 0) {
+        dispatch({
+            type: "INITIAL_LAPTOPS",
+            payload: laptops,
+        });
+    }
+};
+
+
+
+export const laptopSortByRam = (ram) => async (dispatch, getState) => {
+    const copyState = { ...getState().laptops };
+    copyState.ram = ram
+    dispatch({ type: "SORT_BY_RAM_LAPTOPS", payload: copyState })
+
+    const laptops = await getAllLaptops()
+
+    if (copyState.ram.length === 0) {
+        copyState.allProduct = laptops[0]
+        dispatch({ type: "SORT_BY_RAM_LAPTOPS", payload: copyState })
+    } else {
+        let foundRamInclude = laptops[0].map(item => {
+            let arr = item.ram.split(",")
+            arr = _.map(arr, _.trim)
+            if (_.intersection(arr, copyState.ram).length !== 0) {
+                return item
+            } else {
+                return false
+            }
+        })
+        const filter = foundRamInclude.filter(f => f !== false)
+        copyState.allProduct = filter
+        dispatch({ type: "SORT_BY_RAM_LAPTOPS", payload: copyState })
+    }
+
+}

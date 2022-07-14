@@ -10,7 +10,7 @@ import Weight from "./components/weight/Weight";
 
 const MobileSidebar = () => {
   return (
-    <div className="hidden md:flex md:w-1/3 h-fit overflow-y-scroll  font-sans ">
+    <div className="hidden md:flex md:w-1/3 h-fit overflow-y-scroll  font-sans Sidebar">
       <div className="border-2 rounded-xl w-full mx-4 ">
         <h2 className="text-4xl p-4 text h-36 flex items-center">فیلترها</h2>
         <Brand />

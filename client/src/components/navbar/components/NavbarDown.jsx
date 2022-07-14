@@ -32,7 +32,7 @@ const NavbarDown = () => {
           </li>
           {/* <p className="text_2">text</p> */}
           <li className="mx-1 lg:mx-3 py-3 text-sm lg:text-lg cursor-pointer hover:border-b-red-400 hover:border-b-2 transition-all duration-75 rounded-sm text-gray-400 px-1">
-            <Link to="tablet">تبلت</Link>
+            <Link to="tablets">تبلت</Link>
           </li>
           <li className="mx-1 lg:mx-3 py-3 text-sm lg:text-lg cursor-pointer hover:border-b-red-400 hover:border-b-2 transition-all duration-75 rounded-sm text-gray-400 px-1">
             <Link to="console">کنسول بازی</Link>

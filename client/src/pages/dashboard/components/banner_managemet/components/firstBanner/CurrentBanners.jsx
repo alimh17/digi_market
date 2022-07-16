@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTimesCircle } from "react-icons/fa";
+import config from "../../../../../../config/config.json";
 
 const CurrentBanners = ({ data, IconRef, ImgRef, showDeleteIcon, click }) => {
   return (
@@ -20,7 +21,7 @@ const CurrentBanners = ({ data, IconRef, ImgRef, showDeleteIcon, click }) => {
               <img
                 alt={item.name}
                 ref={ImgRef.current[index]}
-                src={item.path}
+                src={config.URL + item.path}
                 className="rounded-lg transition-all ease duration-200 opacity-100"
               />
             </div>

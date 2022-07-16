@@ -26,7 +26,7 @@ const midBanner = async (req, res, next) => {
                 name,
                 type: banner.mimetype,
                 size: banner.size,
-                path: `http://localhost:${process.env.PORT_API}/${folder + name}`
+                path: `${folder + name}`
             })
             await newBanner.save().then(() => {
                 //! ----------------- send success response ----------------
@@ -39,11 +39,10 @@ const midBanner = async (req, res, next) => {
                         name,
                         type: banner.mimetype,
                         size: banner.size,
-                        path: `http://localhost:${process.env.PORT_API}/images/banners/mid_banner/${name}`
+                        path: `${folder + name}`
                     }
                 })
             }).catch(err => {
-
                 return res.status(500).json({
                     status: false,
                     message: "expected name to be unique"

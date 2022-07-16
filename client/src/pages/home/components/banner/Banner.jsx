@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
+import config from "../../../../config/config.json";
 import "./banner.css";
 
 const Banner = () => {
@@ -50,7 +51,11 @@ const Banner = () => {
         >
           {data.map((item) => (
             <SwiperSlide key={item._id}>
-              <img src={item.path} alt={item.name} className="swiper-slide" />
+              <img
+                src={config.URL + item.path}
+                alt={item.name}
+                className="swiper-slide"
+              />
             </SwiperSlide>
           ))}
         </Swiper>

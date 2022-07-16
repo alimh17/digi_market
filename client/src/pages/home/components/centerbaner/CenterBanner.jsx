@@ -2,6 +2,8 @@ import React from "react";
 import { useQuery } from "react-query";
 import { getMiddBanner } from "../../../../server/bannersRequests/bannerRequests";
 
+import config from "../../../../config/config.json";
+
 const CenterBanner = () => {
   const { data } = useQuery("midBanner", getMiddBanner);
 
@@ -10,7 +12,7 @@ const CenterBanner = () => {
       <div className="h-full w-full">
         <img
           alt={data && data.name}
-          src={data && data.path}
+          src={data && config.URL + data.path}
           className="h-full rounded-lg w-full"
         />
       </div>

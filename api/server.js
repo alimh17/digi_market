@@ -20,7 +20,7 @@ app.use(fileUpload({
     createParentPath: true
 }))
 
-//! --------------- set Static files -----------------
+//! ------------------- set Static files -----------------
 
 app.use("/public", express.static(path.join(__dirname, 'public')))
 
